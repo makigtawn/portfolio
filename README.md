@@ -1,16 +1,115 @@
-# React + Vite
+# My Personal Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern personal portfolio website built to showcase my projects, skills, experience, and journey as a developer.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+* Responsive modern UI
+* Projects showcase section
+* Skills and technologies section
+* About me page
+* Contact form / social links
+* Fast and optimized performance
+* Mobile-friendly design
+* Clean and scalable architecture
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Frontend:
 
-## Expanding the ESLint configuration
+* HTML5
+* Tailwind CSS
+* JavaScript 
+* React 
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Tools:
+
+* Git & GitHub
+* Figma
+* VS Code
+
+## Folder Structure
+
+```bash
+project-root/
+│
+├── public/
+├── src/
+│   ├── components/
+│   ├── layouts/
+│   ├── assets/
+│   ├── section/
+│
+├── package.json
+├── index.html
+├── README.md
+└── .gitignore
+```
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/makigtawn/portfolio.git
+```
+
+Navigate into the project folder:
+
+```bash
+cd portfolio
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
+
+```bash
+npm run dev
+```
+
+## Screenshots
+
+Add screenshots of your homepage, projects section, and mobile version here.
+
+## Sections Included
+
+* Hero Section
+* About Me
+* Skills
+* Featured Projects
+* Experience
+* Testimonials
+* Contact
+* Footer
+
+
+## Performance Goals
+
+* Optimized loading speed
+* SEO-friendly structure
+* Accessibility best practices
+* Reusable components
+* Clean code architecture
+
+## Future Improvements
+
+* Blog integration
+* Dark/Light mode toggle
+* CMS integration
+* Multi-language support
+* Project filtering system
+* Admin dashboard
+
+## Author
+
+Meklit Girmaw
+Fullstack Developer
+
+## License
+
+This project is licensed under the MIT License.
