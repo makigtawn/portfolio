@@ -8,9 +8,11 @@ import {
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "@/components/Button";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const contactEmail = "meklitgirmaw@gmail.com";
+const formSubmitUrl = `https://formsubmit.co/${contactEmail}`;
+const successMessage = "The message sent sucessfully, i'll respond ASAP.";
 
 const contactInfo = [
   {
@@ -45,59 +47,55 @@ export const Contact = () => {
     message: "",
   });
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const formRef = useRef(null);
+  const pendingSubmit = useRef(false);
+  const iframeReady = useRef(false);
 
-    setIsLoading(true);
-    setSubmitStatus({ type: null, message: "" });
+  useEffect(() => {
+    if (!isLoading || !pendingSubmit.current) return;
 
-    try {
-      const response = await fetch(
-        `https://formsubmit.co/ajax/${encodeURIComponent(contactEmail)}`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify({
-            name: formData.name,
-            email: formData.email,
-            message: formData.message,
-            _subject: `Portfolio contact from ${formData.name}`,
-            _replyto: formData.email,
-            _captcha: "false",
-            _template: "table",
-          }),
-        },
-      );
-
-      const result = await response.json().catch(() => ({}));
-      const failed =
-        !response.ok || result.success === false || result.success === "false";
-
-      if (failed) {
-        throw new Error(
-          result.message ||
-            "Failed to send message. If this is your first submission, check your inbox to activate the form.",
-        );
-      }
-
-      setSubmitStatus({
-        type: "success",
-        message: "The message sent sucessfully, i'll respond ASAP.",
-      });
-      setFormData({ name: "", email: "", message: "" });
-    } catch (err) {
+    const timeout = window.setTimeout(() => {
+      if (!pendingSubmit.current) return;
+      pendingSubmit.current = false;
+      setIsLoading(false);
       setSubmitStatus({
         type: "error",
         message:
-          err?.message ||
-          "Failed to send message. Please try again later.",
+          "Could not reach FormSubmit. Check your internet connection, disable ad blockers for this site, then try again.",
       });
-    } finally {
-      setIsLoading(false);
+    }, 20000);
+
+    return () => window.clearTimeout(timeout);
+  }, [isLoading]);
+
+  const handleIframeLoad = () => {
+    if (!iframeReady.current) {
+      iframeReady.current = true;
+      return;
     }
+    if (!pendingSubmit.current) return;
+
+    pendingSubmit.current = false;
+    setIsLoading(false);
+    setSubmitStatus({ type: "success", message: successMessage });
+    setFormData({ name: "", email: "", message: "" });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const form = formRef.current;
+    if (!form) return;
+
+    const subjectField = form.elements.namedItem("_subject");
+    if (subjectField && "value" in subjectField) {
+      subjectField.value = `Portfolio contact from ${formData.name}`;
+    }
+
+    setIsLoading(true);
+    setSubmitStatus({ type: null, message: "" });
+    pendingSubmit.current = true;
+    form.submit();
   };
   return (
     <section id="contact" className="py-32 relative overflow-hidden">
@@ -126,7 +124,26 @@ export const Contact = () => {
 
         <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
           <div className="glass p-8 rounded-3xl border border-primary/30 animate-fade-in animation-delay-300">
-            <form className="space-y-6" onSubmit={handleSubmit}>
+            <form
+              ref={formRef}
+              className="space-y-6"
+              action={formSubmitUrl}
+              method="POST"
+              target="formsubmit-response"
+              onSubmit={handleSubmit}>
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_template" value="table" />
+              <input
+                type="hidden"
+                name="_subject"
+                defaultValue="Portfolio contact form"
+              />
+              <iframe
+                name="formsubmit-response"
+                title="FormSubmit response"
+                className="hidden"
+                onLoad={handleIframeLoad}
+              />
               <div>
                 <label
                   htmlFor="name"
@@ -135,6 +152,7 @@ export const Contact = () => {
                 </label>
                 <input
                   id="name"
+                  name="name"
                   type="text"
                   required
                   placeholder="Your name..."
@@ -154,6 +172,7 @@ export const Contact = () => {
                 </label>
                 <input
                   id="email"
+                  name="email"
                   type="email"
                   required
                   placeholder="your@email.com"
@@ -173,6 +192,7 @@ export const Contact = () => {
                 </label>
                 <textarea
                   id="message"
+                  name="message"
                   rows={5}
                   required
                   value={formData.message}
