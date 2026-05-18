@@ -72,7 +72,7 @@ export const Testimonials = () => {
             Kind words from{" "}
             <span
               className="font-serif italic 
-            font-normal text-white">
+            font-normal text-foreground">
               amazing people.
             </span>
           </h2>

@@ -52,32 +52,40 @@ export const Contact = () => {
     setSubmitStatus({ type: null, message: "" });
 
     try {
-      const response = await fetch(`https://formsubmit.co/ajax/${contactEmail}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
+      const response = await fetch(
+        `https://formsubmit.co/ajax/${encodeURIComponent(contactEmail)}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            message: formData.message,
+            _subject: `Portfolio contact from ${formData.name}`,
+            _replyto: formData.email,
+            _captcha: "false",
+            _template: "table",
+          }),
         },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-          _replyto: formData.email,
-          _subject: `Portfolio message from ${formData.name}`,
-          _template: "table",
-          _captcha: "false",
-        }),
-      });
+      );
 
-      const result = await response.json();
+      const result = await response.json().catch(() => ({}));
+      const failed =
+        !response.ok || result.success === false || result.success === "false";
 
-      if (!response.ok) {
-        throw new Error(result.message || "Failed to send message.");
+      if (failed) {
+        throw new Error(
+          result.message ||
+            "Failed to send message. If this is your first submission, check your inbox to activate the form.",
+        );
       }
 
       setSubmitStatus({
         type: "success",
-        message: "Message sent successfully! I'll get back to you soon.",
+        message: "The message sent sucessfully, i'll respond ASAP.",
       });
       setFormData({ name: "", email: "", message: "" });
     } catch (err) {
@@ -106,7 +114,7 @@ export const Contact = () => {
           </span>
           <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 animate-fade-in animation-delay-100 text-secondary-foreground">
             Let's build{" "}
-            <span className="font-serif italic font-normal text-white">
+            <span className="font-serif italic font-normal text-foreground">
               something great.
             </span>
           </h2>

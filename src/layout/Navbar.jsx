@@ -1,4 +1,5 @@
 import { Button } from "@/components/Button";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
@@ -53,8 +54,9 @@ export const Navbar = () => {
           </div>
         </div>
 
-        {/* CTA Button */}
-        <div className="hidden md:block">
+        {/* CTA + theme */}
+        <div className="hidden md:flex items-center gap-3">
+          <ThemeToggle />
           <Button size="sm" href="#contact">
             Contact Me
           </Button>
@@ -78,6 +80,10 @@ export const Navbar = () => {
       {isMobileMenuOpen && (
         <div className="md:hidden glass-strong animate-fade-in">
           <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
+            <div className="flex items-center justify-between pb-2 border-b border-border">
+              <span className="text-sm text-muted-foreground">Appearance</span>
+              <ThemeToggle />
+            </div>
             {navLinks.map((link, index) => (
               <a
                 href={link.href}

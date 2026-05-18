@@ -53,7 +53,7 @@ export const Experience = () => {
             text-secondary-foreground"
           >
             Experience that{" "}
-            <span className="font-serif italic font-normal text-white">
+            <span className="font-serif italic font-normal text-foreground">
               {" "}
               speaks volumes.
             </span>

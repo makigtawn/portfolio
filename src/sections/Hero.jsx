@@ -59,11 +59,8 @@ export const Hero = () => {
         {floatingDots.map((dot, i) => (
           <div
             key={i}
-            className="absolute w-1.5 h-1.5 rounded-full opacity-60"
-            style={{
-              backgroundColor: "#20B2A6",
-              ...dot,
-            }}
+            className="absolute w-1.5 h-1.5 rounded-full opacity-60 bg-primary"
+            style={dot}
           />
         ))}
       </div>
@@ -87,7 +84,7 @@ export const Hero = () => {
                 <br />
                 experiences with
                 <br />
-                <span className="font-serif italic font-normal text-white">
+                <span className="font-serif italic font-normal text-foreground">
                   precision.
                 </span>
               </h1>

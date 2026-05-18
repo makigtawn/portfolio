@@ -1,26 +1,56 @@
 @import "tailwindcss";
 
+:root {
+  --theme-bg: #0f1418;
+  --theme-fg: #f0f2f5;
+  --theme-card: #141a1f;
+  --theme-primary: #20b2a6;
+  --theme-primary-fg: #ffffff;
+  --theme-secondary: #1f2830;
+  --theme-secondary-fg: #20b2a6;
+  --theme-muted: #252e37;
+  --theme-muted-fg: #7a8491;
+  --theme-border: #242b32;
+  --theme-highlight: #f5a623;
+  --theme-surface: #1a2329;
+}
+
+[data-theme="light"] {
+  --theme-bg: #f1f5f9;
+  --theme-fg: #0f172a;
+  --theme-card: #ffffff;
+  --theme-primary: #0d9488;
+  --theme-primary-fg: #ffffff;
+  --theme-secondary: #e2e8f0;
+  --theme-secondary-fg: #0f766e;
+  --theme-muted: #e8eef4;
+  --theme-muted-fg: #64748b;
+  --theme-border: #cbd5e1;
+  --theme-highlight: #d97706;
+  --theme-surface: #ffffff;
+}
+
 @theme {
-  --color-background: #0f1418;
-  --color-foreground: #f0f2f5;
+  --color-background: var(--theme-bg);
+  --color-foreground: var(--theme-fg);
 
-  --color-card: #141a1f;
+  --color-card: var(--theme-card);
 
-  --color-primary: #20b2a6;
-  --color-primary-foreground: #ffffff;
+  --color-primary: var(--theme-primary);
+  --color-primary-foreground: var(--theme-primary-fg);
 
-  --color-secondary: #1f2830;
-  --color-secondary-foreground: #20b2a6;
+  --color-secondary: var(--theme-secondary);
+  --color-secondary-foreground: var(--theme-secondary-fg);
 
-  --color-muted: #252e37;
-  --color-muted-foreground: #7a8491;
+  --color-muted: var(--theme-muted);
+  --color-muted-foreground: var(--theme-muted-fg);
 
-  --color-border: #242b32;
+  --color-border: var(--theme-border);
 
   --radius: 0.75rem;
 
-  --color-highlight: #f5a623;
-  --color-surface: #1a2329;
+  --color-highlight: var(--theme-highlight);
+  --color-surface: var(--theme-surface);
 }
 
 @layer base {
@@ -171,9 +201,13 @@
   }
 
   .animated-border:hover {
-    background-color: color-mix(in srgb, #26c4b8 15%, transparent);
+    background-color: color-mix(
+      in srgb,
+      var(--color-primary) 15%,
+      transparent
+    );
     backdrop-filter: blur(16px);
-    box-shadow: 0 0 20px color-mix(in srgb, #26c4b8 20%, transparent);
+    box-shadow: 0 0 20px color-mix(in srgb, var(--color-primary) 20%, transparent);
   }
 
   .timeline-glow {
@@ -181,4 +215,4 @@
         color-mix(in srgb, var(--color-primary) 35%, transparent),
       0 0 80px color-mix(in srgb, var(--color-primary) 25%, transparent);
   }
-} 
+}
