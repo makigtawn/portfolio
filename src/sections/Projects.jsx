@@ -7,10 +7,11 @@ const projects = [
     title: "Qandil ",
     description:
       "AI-based personalized learning platform ",
-    image: "/projects/project1.png",
-    tags: ["React", "Typescript", "NodeJS","Mongodb"],
-    link: "qandil-ai.vercel.app",
-    github: "",
+      image: "/projects/project1.png",
+
+      tags: ["React", "Typescript", "NodeJS","Mongodb"],
+link: "https://qandil-ai.vercel.app/",
+    github: "https://github.com/makigtawn/Qandil-ai",
   },
   {
     title: "Clinic patient queue management system ",

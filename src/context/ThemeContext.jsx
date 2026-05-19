@@ -1,19 +1,12 @@
 import {
-  createContext,
   useCallback,
-  useContext,
   useEffect,
   useMemo,
   useState,
 } from "react";
+import { ThemeContext } from "./theme-context";
 
 const STORAGE_KEY = "portfolio-theme";
-
-const ThemeContext = createContext({
-  theme: "dark",
-  setTheme: () => {},
-  toggleTheme: () => {},
-});
 
 function applyTheme(theme) {
   document.documentElement.dataset.theme = theme;
@@ -56,8 +49,4 @@ export function ThemeProvider({ children }) {
   return (
     <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
   );
-}
-
-export function useTheme() {
-  return useContext(ThemeContext);
 }

@@ -8,11 +8,12 @@ import {
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "@/components/Button";
-import { useEffect, useRef, useState } from "react";
+import { sendContactMessage } from "@/lib/sendContact";
+import { useState } from "react";
 
 const contactEmail = "meklitgirmaw@gmail.com";
-const formSubmitUrl = `https://formsubmit.co/${contactEmail}`;
-const successMessage = "The message sent sucessfully, i'll respond ASAP.";
+const successMessage =
+  "Your message was sent successfully. I'll respond as soon as I can.";
 
 const contactInfo = [
   {
@@ -47,56 +48,26 @@ export const Contact = () => {
     message: "",
   });
 
-  const formRef = useRef(null);
-  const pendingSubmit = useRef(false);
-  const iframeReady = useRef(false);
-
-  useEffect(() => {
-    if (!isLoading || !pendingSubmit.current) return;
-
-    const timeout = window.setTimeout(() => {
-      if (!pendingSubmit.current) return;
-      pendingSubmit.current = false;
-      setIsLoading(false);
-      setSubmitStatus({
-        type: "error",
-        message:
-          "Could not reach FormSubmit. Check your internet connection, disable ad blockers for this site, then try again.",
-      });
-    }, 20000);
-
-    return () => window.clearTimeout(timeout);
-  }, [isLoading]);
-
-  const handleIframeLoad = () => {
-    if (!iframeReady.current) {
-      iframeReady.current = true;
-      return;
-    }
-    if (!pendingSubmit.current) return;
-
-    pendingSubmit.current = false;
-    setIsLoading(false);
-    setSubmitStatus({ type: "success", message: successMessage });
-    setFormData({ name: "", email: "", message: "" });
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const form = formRef.current;
-    if (!form) return;
-
-    const subjectField = form.elements.namedItem("_subject");
-    if (subjectField && "value" in subjectField) {
-      subjectField.value = `Portfolio contact from ${formData.name}`;
-    }
 
     setIsLoading(true);
     setSubmitStatus({ type: null, message: "" });
-    pendingSubmit.current = true;
-    form.submit();
+
+    try {
+      await sendContactMessage(formData);
+      setSubmitStatus({ type: "success", message: successMessage });
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      setSubmitStatus({
+        type: "error",
+        message: error.message || "Could not send your message. Please try again.",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
+
   return (
     <section id="contact" className="py-32 relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full">
@@ -124,26 +95,7 @@ export const Contact = () => {
 
         <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
           <div className="glass p-8 rounded-3xl border border-primary/30 animate-fade-in animation-delay-300">
-            <form
-              ref={formRef}
-              className="space-y-6"
-              action={formSubmitUrl}
-              method="POST"
-              target="formsubmit-response"
-              onSubmit={handleSubmit}>
-              <input type="hidden" name="_captcha" value="false" />
-              <input type="hidden" name="_template" value="table" />
-              <input
-                type="hidden"
-                name="_subject"
-                defaultValue="Portfolio contact form"
-              />
-              <iframe
-                name="formsubmit-response"
-                title="FormSubmit response"
-                className="hidden"
-                onLoad={handleIframeLoad}
-              />
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label
                   htmlFor="name"
