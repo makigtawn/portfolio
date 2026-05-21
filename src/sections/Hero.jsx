@@ -17,8 +17,8 @@ import {
 
 const skills = [
   "React",
-  "Next.js",
-  "TypeScript",
+  // "Next.js",
+  // "TypeScript",
   "Node.js",
   "PostgreSQL",
   "MongoDB",
@@ -31,7 +31,6 @@ const skills = [
   "team work",
   "project management",
   "product management",
-
 ];
 
 const floatingDots = Array.from({ length: 30 }, (_, i) => ({
@@ -73,28 +72,27 @@ export const Hero = () => {
             <div className="animate-fade-in">
               <span className="inline-flex items-center gap-2 px-3 py-2 rounded-full glass text-xs sm:text-sm text-primary">
                 <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-                Software Engineer • React Specialist
+                Meklit Girmaw{" "}
               </span>
             </div>
 
             {/* Headline */}
             <div className="space-y-3 md:space-y-4">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.08] animate-fade-in animation-delay-100">
-                Crafting <span className="text-primary glow-text">digital</span>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.08] animate-fade-in animation-delay-100">
+                Let's build something 
                 <br />
-                experiences with
+                <span className="text-primary glow-text"> great together </span>
                 <br />
                 <span className="font-serif italic font-normal text-foreground">
-                  precision.
+                  step by step.
                 </span>
               </h1>
               <p className="text-base md:text-lg text-muted-foreground max-w-lg animate-fade-in animation-delay-200">
-                Hi, I'm Meklit Girmaw a software engineer specializing in
-                React, Next.js, and JavaScript. I build scalable, performant web
-                applications that users love.
+                Hi, I'm Meklit Girmaw. I partner with founders and teams to
+                craft fast, scalable React applications. No confusing jargon
+                just great code and clear communication.
               </p>
             </div>
-
             {/* CTAs */}
             <div className="flex flex-wrap gap-3 animate-fade-in animation-delay-300">
               <Button size="default" href="#contact">
@@ -113,12 +111,32 @@ export const Hero = () => {
                 Follow me:
               </span>
               {[
-                { icon: GitHubIcon, href: "https://github.com/makigtawn", label: "GitHub" },
-                { icon: LinkedInIcon, href: "https://linkedin.com/in/makigtawn", label: "LinkedIn" },
+                {
+                  icon: GitHubIcon,
+                  href: "https://github.com/makigtawn",
+                  label: "GitHub",
+                },
+                {
+                  icon: LinkedInIcon,
+                  href: "https://linkedin.com/in/makigtawn",
+                  label: "LinkedIn",
+                },
                 { icon: XIcon, href: "https://x.com/makigtawn", label: "X" },
-                { icon: TelegramIcon, href: "https://t.me/makigtawn", label: "Telegram" },
-                { icon: RedditIcon, href: "https://www.reddit.com/user/makigtawn", label: "Reddit" },
-                { icon: LeetCodeIcon, href: "https://leetcode.com/u/makigtawn/", label: "LeetCode" },
+                {
+                  icon: TelegramIcon,
+                  href: "https://t.me/makigtawn",
+                  label: "Telegram",
+                },
+                {
+                  icon: RedditIcon,
+                  href: "https://www.reddit.com/user/makigtawn",
+                  label: "Reddit",
+                },
+                {
+                  icon: LeetCodeIcon,
+                  href: "https://leetcode.com/u/makigtawn/",
+                  label: "LeetCode",
+                },
               ].map((social, idx) => (
                 <a
                   key={idx}
@@ -160,9 +178,11 @@ export const Hero = () => {
                 </div>
                 {/* Stats Badge */}
                 <div className="absolute -top-4 -left-2 lg:-left-4 glass rounded-xl px-3 py-2 lg:px-4 lg:py-3 animate-float animation-delay-500">
-                  <div className="text-xl lg:text-2xl font-bold text-primary">over a year</div>
+                  <div className="text-xl lg:text-2xl font-bold text-primary">
+                    over a year
+                  </div>
                   <div className="text-xs text-muted-foreground">
-                     Experience
+                    Experience
                   </div>
                 </div>
               </div>

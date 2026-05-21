@@ -1,105 +1,100 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCode,
-  faLightbulb,
-  faRocket,
-  faUsers,
+  faDatabase,
+  faLock,
+  faComments,
 } from "@fortawesome/free-solid-svg-icons";
 
 const highlights = [
   {
     icon: faCode,
-    title: "Full-Stack Development",
+    title: "Fast Frontends",
     description:
-      "Building end-to-end applications using MongoDB, Express, React, and Node.js.",
+      "Building responsive, modern interfaces with React and Next.js.",
   },
   {
-    icon: faRocket,
-    title: "Scalable Backends",
+    icon: faDatabase,
+    title: "Secure Backends",
     description:
-      "Implementing secure authentication and efficient data handling with Supabase and Atlas.",
+      "Managing databases with MongoDB Atlas and Supabase to keep data safe.",
   },
   {
-    icon: faUsers,
-    title: "Collaboration",
-    description: "Working closely with teams to bring ideas to life.",
+    icon: faLock,
+    title: "Protected Data",
+    description: "Implementing secure login systems and robust user routing.",
   },
   {
-    icon: faLightbulb,
-    title: "Problem Solver",
+    icon: faComments,
+    title: "Clear Communication",
     description:
-      "Focusing on UX/UI to bridge the gap between complex code and user needs.",
+      "No confusing tech jargon. Just honest updates and reliable work.",
   },
 ];
 
 export const About = () => {
   return (
-    <section id="about" className="py-32 relative overflow-hidden">
+    <section id="about" className="py-24 relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Column */}
-          <div className="space-y-8">
-            <div className="animate-fade-in">
-              <span className="text-secondary-foreground text-sm font-medium tracking-wider uppercase">
+          <div className="space-y-6">
+            <div>
+              <span className="text-secondary-foreground text-xs font-semibold tracking-wider uppercase">
                 About Me
               </span>
             </div>
 
-            <h2 className="text-4xl md:text-5xl font-bold leading-tight animate-fade-in animation-delay-100 text-secondary-foreground">
-              Building My developer journey,
+            <h2 className="text-3xl md:text-4xl font-bold leading-tight text-secondary-foreground">
+              Writing clean code to build
               <span className="font-serif italic font-normal text-foreground">
                 {" "}
-                one component at a time.
+                reliable web apps.
               </span>
             </h2>
 
-            <div className="space-y-4 text-muted-foreground animate-fade-in animation-delay-200">
+            <div className="space-y-4 text-muted-foreground text-base">
               <p>
-                I am a developer focused on mastering the{" "}
-                <strong>MERN stack</strong> (MongoDB, Express, React, Node.js).
-                What started as a curiosity about the web has grown into a
-                passion for building full-stack applications that solve
-                real-world problems.
+                I am a software engineer specializing in the{" "}
+                <strong>MERN stack</strong> and <strong>Next.js</strong>. I
+                focus on building full-stack applications that load fast, handle
+                data smoothly, and look great.
               </p>
               <p>
-                Currently, I'm deep-diving into{" "}
-                <strong>backend architecture</strong> and cloud-based services
-                like MongoDB Atlas and Supabase. I enjoy the challenge of
-                connecting a seamless React frontend with a robust, secure
-                backend.
+                I enjoy connecting user-friendly React frontends with secure
+                backends using tools like MongoDB Atlas and Supabase. Security
+                and database optimization are always my top priorities.
               </p>
               <p>
-                My recent work includes developing a{" "}
-                <strong>Job Finder platform</strong>, where I've implemented
-                custom authentication systems and dynamic data routing to help
-                users find their next opportunity.
+                Recently, I built a <strong>Job Finder web app</strong> from
+                scratch. I handled everything from the frontend design to custom
+                user authentication and database routing.
               </p>
             </div>
-            
-            <div className="glass rounded-2xl p-6 glow-border animate-fade-in animation-delay-300">
-              <p className="text-lg font-medium italic text-foreground">
-                "I believe great software isn't just about code that works it's
-                about creating tools that empower people and systems that are
-                built to grow."
+
+            <div className="glass rounded-xl p-5 glow-border">
+              <p className="text-base font-medium italic text-foreground">
+                "My goal is simple: solve your business headaches with reliable
+                code and zero stress."
               </p>
             </div>
           </div>
 
-          {/* Right Column - Hilights */}
-          <div className="grid sm:grid-cols-2 gap-6">
+          {/* Right Column - Highlights */}
+          <div className="grid sm:grid-cols-2 gap-4">
             {highlights.map((item, idx) => (
               <div
                 key={idx}
-                className="glass p-6 rounded-2xl animate-fade-in"
+                className="glass p-5 rounded-xl animate-fade-in"
                 style={{ animationDelay: `${(idx + 1) * 100}ms` }}>
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 hover:bg-primary/20">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
                   <FontAwesomeIcon
                     icon={item.icon}
-                    className="h-6 w-6 text-primary"
+                    className="h-5 w-5 text-primary"
                   />
                 </div>
-                <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
-                <p className="text-sm text-muted-foreground">
+                <h3 className="text-base font-semibold mb-1">{item.title}</h3>
+                <p className="text-xs text-muted-foreground leading-relaxed">
                   {item.description}
                 </p>
               </div>

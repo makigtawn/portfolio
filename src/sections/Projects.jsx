@@ -143,7 +143,12 @@ export const Projects = () => {
 
         {/* View All CTA */}
         <div className="text-center mt-12 animate-fade-in animation-delay-500">
-          <AnimatedBorderButton>
+          <AnimatedBorderButton
+            href="https://github.com/makigtawn?tab=repositories"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="View all projects on GitHub"
+          >
             View All Projects
             <FontAwesomeIcon
               icon={faArrowUpRightFromSquare}
