@@ -22,15 +22,15 @@ link: "https://qandil-ai.vercel.app/",
     link: "#",
     github: "https://github.com/makigtawn/clinic-patient-queue-management-system",
   },
-  {
-    title: "AI Writing Assistant",
-    description:
-      "An intelligent writing tool powered by GPT-4, helping users create better content faster.",
-    image: "/projects/project3.png",
-    tags: ["React", "OpenAI", "Python", "FastAPI"],
-    link: "#",
-    github: "#",
-  },
+  // {
+  //   title: "AI Writing Assistant",
+  //   description:
+  //     "An intelligent writing tool powered by GPT-4, helping users create better content faster.",
+  //   image: "/projects/project3.png",
+  //   tags: ["React", "OpenAI", "Python", "FastAPI"],
+  //   link: "#",
+  //   github: "#",
+  // },
   {
     title: "spering",
     description:
@@ -87,7 +87,7 @@ export const Projects = () => {
                 bg-gradient-to-t from-card via-card/50
                  to-transparent opacity-60"
                 />
-                {/* Overlay Links */}
+                {/* Overlay Links seen when hovered*/}
                 <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <a
                     href={project.link}
@@ -146,7 +146,7 @@ export const Projects = () => {
           <AnimatedBorderButton
             href="https://github.com/makigtawn?tab=repositories"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             aria-label="View all projects on GitHub"
           >
             View All Projects

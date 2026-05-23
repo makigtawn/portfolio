@@ -65,11 +65,7 @@ export const About = () => {
                 backends using tools like MongoDB Atlas and Supabase. Security
                 and database optimization are always my top priorities.
               </p>
-              <p>
-                Recently, I built a <strong>Job Finder web app</strong> from
-                scratch. I handled everything from the frontend design to custom
-                user authentication and database routing.
-              </p>
+              
             </div>
 
             <div className="glass rounded-xl p-5 glow-border">

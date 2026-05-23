@@ -52,6 +52,7 @@ function contactApiDevPlugin(mode) {
             error instanceof ContactError
               ? error.message
               : "Could not send your message.";
+          console.error("[contact-api-dev]", message);
           res.statusCode = status;
           res.end(JSON.stringify({ error: message }));
         }

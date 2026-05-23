@@ -14,9 +14,11 @@ export default async function handler(req, res) {
     return res.status(200).json({ success: true });
   } catch (error) {
     if (error instanceof ContactError) {
+      console.error("[contact-api]", error.message);
       return res.status(error.status).json({ error: error.message });
     }
 
+    console.error("[contact-api]", error);
     return res.status(500).json({ error: "Could not send your message." });
   }
 }
