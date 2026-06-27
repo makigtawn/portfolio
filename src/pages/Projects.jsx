@@ -142,7 +142,7 @@ export const Projects = () => {
         </div>
 
         {/* View All CTA */}
-        <div className="text-center mt-12 animate-fade-in animation-delay-500">
+        <div className="text-center mt-12">
           <AnimatedBorderButton
             href="https://github.com/makigtawn?tab=repositories"
             target="_blank"
