@@ -4,29 +4,29 @@ A modern personal portfolio website built to showcase my projects, skills, exper
 
 ## Features
 
-* Responsive modern UI
-* Projects showcase section
-* Skills and technologies section
-* About me page
-* Contact form / social links
-* Fast and optimized performance
-* Mobile-friendly design
-* Clean and scalable architecture
+- Responsive modern UI
+- Projects showcase section
+- Skills and technologies section
+- About me page
+- Contact form / social links
+- Fast and optimized performance
+- Mobile-friendly design
+- Clean and scalable architecture
 
 ## Tech Stack
 
 Frontend:
 
-* HTML5
-* Tailwind CSS
-* JavaScript 
-* React 
+- HTML5
+- Tailwind CSS
+- JavaScript
+- React
 
 Tools:
 
-* Git & GitHub
-* Figma
-* VS Code
+- Git & GitHub
+- Figma
+- VS Code
 
 ## Folder Structure
 
@@ -76,34 +76,33 @@ npm run dev
 
 Add screenshots of your homepage, projects section, and mobile version here.
 
-## Sections Included
+## pages Included
 
-* Hero Section
-* About Me
-* Skills
-* Featured Projects
-* Experience
-* Testimonials
-* Contact
-* Footer
-
+- Hero Section
+- About Me
+- Skills
+- Featured Projects
+- Experience
+- Testimonials
+- Contact
+- Footer
 
 ## Performance Goals
 
-* Optimized loading speed
-* SEO-friendly structure
-* Accessibility best practices
-* Reusable components
-* Clean code architecture
+- Optimized loading speed
+- SEO-friendly structure
+- Accessibility best practices
+- Reusable components
+- Clean code architecture
 
 ## Future Improvements
 
-* Blog integration
-* Dark/Light mode toggle
-* CMS integration
-* Multi-language support
-* Project filtering system
-* Admin dashboard
+- Blog integration
+- Dark/Light mode toggle
+- CMS integration
+- Multi-language support
+- Project filtering system
+- Admin dashboard
 
 ## Author
 

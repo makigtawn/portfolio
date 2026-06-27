@@ -23,7 +23,8 @@
   --theme-primary-fg: #ffffff;
   --theme-secondary: #e2e8f0;
   --theme-secondary-fg: #0f766e;
-  --theme-muted: #e8eef4;
+  --theme-muted: #e8eef4}
+;
   --theme-muted-fg: #64748b;
   --theme-border: #cbd5e1;
   --theme-highlight: #d97706;
@@ -65,11 +66,7 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    font-family: "Inter", sans-serif;
-  }
-
-  .font-serif {
-    font-family: "Playfair Display", serif;
+    font-family: "cousine", sans-serif;
   }
 }
 
