@@ -17,18 +17,17 @@
 
 [data-theme="light"] {
   --theme-bg: #f1f5f9;
-  --theme-fg: #0f172a;
+  --theme-fg: #060606;
   --theme-card: #ffffff;
-  --theme-primary: #0d9488;
+  --theme-primary: #000000;
   --theme-primary-fg: #ffffff;
   --theme-secondary: #e2e8f0;
   --theme-secondary-fg: #0f766e;
-  --theme-muted: #e8eef4}
-;
-  --theme-muted-fg: #64748b;
+  --theme-muted: #e8eef4;
+   --theme-muted-fg: #64748b;
   --theme-border: #cbd5e1;
   --theme-highlight: #d97706;
-  --theme-surface: #ffffff;
+  --theme-surface: #ffffff; 
 }
 
 @theme {

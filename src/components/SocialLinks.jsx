@@ -26,9 +26,6 @@ const SocialLinks = () => {
 
   return (
     <div className="flex flex-wrap items-center gap-3 sm:gap-4 animate-fade-in animation-delay-400">
-      <span className="w-full text-sm text-muted-foreground sm:w-auto">
-        Follow me:
-      </span>
       {socials.map((social, idx) => (
         <a
           key={idx}

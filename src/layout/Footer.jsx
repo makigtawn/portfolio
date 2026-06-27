@@ -13,7 +13,7 @@ export const Footer = () => {
               MG<span className="text-primary">.</span>
             </a>
             <p className="text-sm text-muted-foreground mt-2">
-              © {currentYear} Meklit Girmaw. All rights reserved.
+              © {currentYear} All rights reserved.
             </p>
           </div>
 

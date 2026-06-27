@@ -14,17 +14,14 @@ export const Hero = () => {
                 Meklit
                 <div className="pl-8"> Girmaw </div>
               </h1>
-              {/* 
+              
               <p className="max-w-md text-lg leading-relaxed text-zinc-600">
-                I'm Meklit Girmaw. I write code that actually works for founders
+                I'm Meklit Girmaw. Full-stack developer building for founders
                 and teams who need clear, fast, and reliable React applications.
                 No fluff, just logic.
-              </p> */}
-
-              <p className="max-w-md text-lg leading-relaxed text-zinc-600">
-                I'm Meklit Girmaw. Full-stack developer building performant MERN
-                applications.
+            
               </p>
+
             </div>
 
             <div className="flex items-center gap-6">
@@ -50,26 +47,12 @@ export const Hero = () => {
                 <img
                   src="/profile-photo.png"
                   alt="Meklit Girmaw"
-                  className="w-full max-h-[52vh] aspect-[4/5] object-cover rounded-2xl grayscale transition-all duration-500"
+                  className="w-full max-h-[52vh] aspect-[4/5] object-cover rounded-2xl grayscale-[60%] transition-all "
                 />
               </div>
             </div>
           </div>
         </div>
-      </div>
-
-      <div
-        className="absolute bottom-3 md:bottom-5 left-1/2 -translate-x-1/2 
-      animate-fade-in animation-delay-800">
-        <a
-          href="#about"
-          className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors group">
-          <span className="text-xs uppercase tracking-wider">Scroll</span>
-          <FontAwesomeIcon
-            icon={faChevronDown}
-            className="h-6 w-6 animate-bounce"
-          />
-        </a>
       </div>
     </section>
   );
