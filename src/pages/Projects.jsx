@@ -6,7 +6,7 @@ const projects = [
   // {
   //   title: "AI Writing Assistant",
   //   description:
-  //     "An intelligent writing tool powered by GPT-4, helping users create better content faster.",
+  //     "An intelligent writing tool powered by Gemini, helping users create better content faster.",
   //   image: "/projects/project5.png",
   //   tags: ["React", "OpenAI", "Python", "FastAPI"],
   //   link: "#",
@@ -105,19 +105,20 @@ export const Projects = () => {
                   </a>
                 </div>
               </div>
-
+             
               {/* Content */}
               <div className="p-6 space-y-4">
-                  <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
-                    {project.title}
-                  </h3>
+                <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
+                  {project.title}
+                </h3>
 
                 <p className="text-muted-foreground text-sm">
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag, tagIdx) => (
-                    <span
+                    <span className="max-w-3xl mb-16"
+                      //              
                       key={tagIdx}
                       className="px-4 py-1.5 rounded-full bg-surface text-xs font-medium border border-border/50 text-muted-foreground hover:border-primary/50 hover:text-primary transition-all duration-300">
                       {tag}
@@ -129,7 +130,6 @@ export const Projects = () => {
           ))}
         </div>
 
-        {/* View All CTA */}
         <div className="text-center mt-12">
           <Button
             className="p-3 border border-"
@@ -149,9 +149,12 @@ export const Projects = () => {
   );
 };
 
+
+
+
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
-// import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
+// // import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
 // import { GitHubIcon } from "@/components/BrandIcons";
 // const projects = [
 //   {

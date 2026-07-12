@@ -1,4 +1,4 @@
-@import "tailwindcss";
+ @import "tailwindcss";
 
 :root {
   --theme-bg: #0f1418;
@@ -211,4 +211,4 @@
         color-mix(in srgb, var(--color-primary) 35%, transparent),
       0 0 80px color-mix(in srgb, var(--color-primary) 25%, transparent);
   }
-}
+} 

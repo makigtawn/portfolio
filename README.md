@@ -83,7 +83,6 @@ Add screenshots of your homepage, projects section, and mobile version here.
 - Skills
 - Featured Projects
 - Experience
-- Testimonials
 - Contact
 - Footer
 

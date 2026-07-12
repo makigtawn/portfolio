@@ -9,7 +9,7 @@ import {
 import { Button } from "@/components/Button";
 import { sendContactMessage } from "@/lib/sendContact";
 import { useState } from "react";
-
+import SocialLinks from "../components/SocialLinks";
 const contactEmail = "meklitgirmaw@gmail.com";
 const successMessage =
   "Your message was sent successfully. I'll respond as soon as I can.";
@@ -76,18 +76,9 @@ export const Contact = () => {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-black font-medium tracking-wider uppercase ">
-            Get In Touch
-          </span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 text-black">
-            Let's build together
-          </h2>
-          <p className="text-muted-foreground animation-delay-200">
-            Have a project in mind? I'd love to hear about it. Send me a message
-            and let's discuss how we can work together.
-          </p>
-        </div>
+        <h2 className="text-center max-w-3xl mx-auto mb-16 text-4xl md:text-5xl font-bold mt-4 mb-6 text-black">
+          contact me
+        </h2>
 
         <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
           <div className="glass p-8 rounded-3xl">
@@ -186,7 +177,9 @@ export const Contact = () => {
           </div>
 
           {/* Contact Info */}
-          <div className="space-y-6">
+          <div className="space-y-12">
+
+          
             <div className="glass rounded-3xl p-8">
               <h3 className="text-xl font-semibold mb-6">
                 Contact Information
@@ -197,12 +190,6 @@ export const Contact = () => {
                     key={i}
                     href={item.href}
                     className="flex items-center gap-4 p-4 rounded-xl hover:bg-black/10 transition-colors group">
-                    <div className="w-12 h-12 rounded-xl bg-black/10 flex items-center justify-center group-hover:bg-black/20 transition-colors">
-                      <FontAwesomeIcon
-                        icon={item.icon}
-                        className="h-5 w-5 text-black"
-                      />
-                    </div>
                     <div>
                       <div className="text-black font-bold">{item.label}</div>
                       <div className="font-medium">{item.value}</div>
