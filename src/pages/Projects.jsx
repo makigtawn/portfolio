@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
-import { GitHubIcon } from "@/components/BrandIcons";
 import { Button } from "../components/Button";
+import { FaGithub } from "react-icons/fa";
 const projects = [
   // {
   //   title: "AI Writing Assistant",
@@ -59,12 +59,8 @@ export const Projects = () => {
         <div className="text-center mx-auto max-w-3xl mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 text-primary">
             Projects
-            <br /> that make an impact
           </h2>
-          <p className="text-muted-foreground ">
-            A selection of my recent work, from complex web applications to
-            innovative tools that solve real-world problems.
-          </p>
+          
         </div>
 
         {/* Projects Grid */}
@@ -101,7 +97,7 @@ export const Projects = () => {
                     href={project.github}
                     aria-label={`View ${project.title} on GitHub`}
                     className="p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all">
-                    <GitHubIcon className="w-5 h-5" />
+                    <FaGithub className="w-5 h-5" />
                   </a>
                 </div>
               </div>

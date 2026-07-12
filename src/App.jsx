@@ -4,7 +4,7 @@ import { About } from "../src/pages/About";
 import { Projects } from "../src/pages/Projects";
 import { Experience } from "../src/pages/Experience";
 import { Contact } from "../src/pages/Contact";
-import { Footer } from "@/layout/Footer";
+import Footer from "./layout/Footer"; 
 
 function App() {
   return (

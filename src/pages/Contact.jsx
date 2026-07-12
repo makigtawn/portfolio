@@ -9,7 +9,7 @@ import {
 import { Button } from "@/components/Button";
 import { sendContactMessage } from "@/lib/sendContact";
 import { useState } from "react";
-import SocialLinks from "../components/SocialLinks";
+// import SocialLinks from "../components/SocialLinks";
 const contactEmail = "meklitgirmaw@gmail.com";
 const successMessage =
   "Your message was sent successfully. I'll respond as soon as I can.";

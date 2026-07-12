@@ -67,32 +67,19 @@ export const About = () => {
               <br /> with clean architecture.
             </h2>
             <div className="space-y-4 text-muted-foreground ">
-              <p className="text-align ">
-                I am a full-stack software engineer who loves turning complex
-                problems into smooth digital experiences. My growth journey is
-                fueled by a hands-on approach: constantly building, evolving my
-                stack, and refining my workflow to create applications that load
-                fast and scale effortlessly.
-              </p>
-              <p>
-                Specializing in modern JavaScript ecosystems like React,
-                Next.js, and Supabase, I bridge the gap between pixel-perfect
-                frontends and secure, optimized backends. For me, software
-                development isn't just about writing code—it's about continuous
-                learning and engineering reliable solutions.
+              <p className="text-align ">              
+              I'm a Full Stack Developer who enjoys building simple, useful, and
+              user-friendly web applications. I like working with teams, solving
+              real problems, and learning new technologies. My goal is to create
+              products that help people while growing my skills and building a
+              successful career.
               </p>
             </div>
 
-            <div className="glass rounded-xl p-5 glow-border">
-              <p className="text-base font-medium italic text-foreground">
-                "My goal is simple: solve real-world problems with robust code,
-                clear communication, and zero stress."
-              </p>
-            </div>
           </div>
 
           {/* Right Column - Highlights */}
-          <div className="grid sm:grid-cols-2 gap-4">
+          {/* <div className="grid sm:grid-cols-2 gap-4">
             {highlights.map((item, idx) => (
               <div
                 key={idx}
@@ -110,6 +97,17 @@ export const About = () => {
                 </p>
               </div>
             ))}
+          </div> */}
+          <div className="relative hidden md:block">
+            <div className="relative max-w-xs lg:max-w-sm mx-auto">
+              <div className="relative bg-white p-1 rounded-3xl shadow-sm">
+                <img
+                  src="/profile-photo.png"
+                  alt="Meklit Girmaw"
+                  className="w-full max-h-[52vh] aspect-[4/5] object-cover rounded-2xl grayscale-[60%] transition-all "
+                />
+              </div>
+            </div>
           </div>
         </div>
         {/* Skills Section */}
@@ -141,12 +139,6 @@ export const About = () => {
     </section>
   );
 };
-
-
-
-
-
-
 
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import {

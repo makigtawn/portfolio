@@ -123,7 +123,7 @@
 
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import SocialLinks from "../components/SocialLinks";
+// import SocialLinks from "../components/SocialLinks";
 import { motion } from "framer-motion";
 
 function Hero() {
@@ -158,14 +158,14 @@ function Hero() {
       initial="hidden"
       animate="visible"
       className="relative min-h-screen flex items-center overflow-hidden">
-      <div className="container mx-auto px-6 pt-24 pb-14 md:pt-28 md:pb-16 relative z-10">
+      <div className="container mx-auto lg:px-15 lg:pt-6 px-6 pt-24 pb-14 md:pt-28 md:pb-16 relative z-10">
         <div className="lg:grid lg:grid-cols-2 md:grid md:grid-cols-2 gap-3 lg:gap-2 items-center">
           {/* Left Column */}
 
           <div className="flex flex-col space-y-4">
             <motion.p
               variants={itemVariants}
-              className="text-xs text-brand-mutedLight dark:text-brand-mutedDark">
+              className="text-xl text-brand-mutedLight dark:text-brand-mutedDark">
               $ whoami
             </motion.p>
 
@@ -219,7 +219,7 @@ function Hero() {
 
           {/* Right Column  */}
 
-          <div className="relative hidden md:block">
+          {/* <div className="relative hidden md:block">
             <div className="relative max-w-xs lg:max-w-sm mx-auto">
               <div className="relative bg-white p-1 rounded-3xl shadow-sm">
                 <img
@@ -229,7 +229,7 @@ function Hero() {
                 />
               </div>
             </div>
-          </div>
+          </div> */}
           {/* code panel */}
           <motion.div variants={itemVariants} className="w-full">
             <div className="border border-brand-lineLight dark:border-brand-lineDark rounded-lg overflow-hidden bg-brand-panelLight dark:bg-brand-panelDark">
@@ -249,7 +249,7 @@ function Hero() {
                   status ={" "}
                   <span className="italic opacity-80">"available"</span>;
                 </p>
-                <motion.p className="text-brand-mutedLight dark:text-brand-mutedDark overflow-hidden whitespace-nowrap">
+                {/* <motion.p className="text-brand-mutedLight dark:text-brand-mutedDark overflow-hidden whitespace-nowrap"> */}
                   <motion.p
                     initial={{ width: 0 }}
                     animate={{ width: "100%" }}
@@ -265,7 +265,7 @@ function Hero() {
                       className="inline-block ml-0.5 font-bold ">
                       _
                     </motion.span>
-                  </motion.p>
+                  {/* </motion.p> */}
                 </motion.p>
               </div>
             </div>
