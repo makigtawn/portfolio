@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
+import { TerminalDemo } from "../components/Terminal";
 
 function Hero() {
   const containerVariants = {
@@ -106,16 +107,14 @@ function Hero() {
             </div>
           </div> */}
           {/* code panel */}
-          <motion.div variants={itemVariants} className="w-full">
+          {/* <motion.div variants={itemVariants} className="w-full">
             <div className="border border-brand-lineLight dark:border-brand-lineDark rounded-lg overflow-hidden bg-brand-panelLight dark:bg-brand-panelDark">
-              {/* Structural window controls (No icons, using borders) */}
               <div className="px-3 py-2 flex gap-1.5 border-b border-brand-lineLight dark:border-brand-lineDark">
                 <span className="w-2 h-2 rounded-full border border-brand-lineLight dark:border-brand-lineDark"></span>
                 <span className="w-2 h-2 rounded-full border border-brand-lineLight dark:border-brand-lineDark"></span>
                 <span className="w-2 h-2 rounded-full border border-brand-lineLight dark:border-brand-lineDark"></span>
               </div>
 
-              {/* Core code block panel */}
               <div className="p-5 text-xs md:text-sm space-y-2 leading-relaxed">
                 <p>
                   <span className="font-bold text-brand-mutedLight dark:text-brand-mutedDark">
@@ -124,27 +123,26 @@ function Hero() {
                   status ={" "}
                   <span className="italic opacity-80">"available"</span>;
                 </p>
-                {/* <motion.p className="text-brand-mutedLight dark:text-brand-mutedDark overflow-hidden whitespace-nowrap"> */}
-                  <motion.p
-                    initial={{ width: 0 }}
-                    animate={{ width: "100%" }}
-                    transition={{
-                      delay: 0.8,
-                      duration: 1.5,
-                      ease: "easeInOut",
-                    }}
-                    className="inline-block">
-                    // let's build something beautiful
-                    <motion.span
-                      animate={blinkAnimation}
-                      className="inline-block ml-0.5 font-bold ">
-                      _
-                    </motion.span>
-                  {/* </motion.p> */}
+                <motion.p
+                  initial={{ width: 0 }}
+                  animate={{ width: "100%" }}
+                  transition={{
+                    delay: 0.8,
+                    duration: 1.5,
+                    ease: "easeInOut",
+                  }}
+                  className="inline-block">
+                  // let's build something beautiful
+                  <motion.span
+                    animate={blinkAnimation}
+                    className="inline-block ml-0.5 font-bold ">
+                    _
+                  </motion.span>
                 </motion.p>
               </div>
             </div>
-          </motion.div>
+          </motion.div> */}
+<TerminalDemo />
         </div>
       </div>
     </motion.main>
