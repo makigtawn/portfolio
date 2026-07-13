@@ -82,7 +82,7 @@ function Hero() {
 
               <a
                 href="#contact"
-                className="px-6 py-3 border-2 border-black bg-black text-white hover:bg-white hover:text-black transition-colors">
+                className="px-6 py-3 border-2 border-black bg-black dark:bg-white text-white hover:bg-white hover:text-black transition-colors">
                 Get in touch
               </a>
               <a

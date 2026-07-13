@@ -1,6 +1,25 @@
- @import "tailwindcss";
+@import "tailwindcss";
+
+/* 1. Tell Tailwind v4 to look for your data-theme="dark" attribute */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 :root {
+  --theme-bg: #0f1418;
+  --theme-fg: #f0f2f5;
+  --theme-card: #141a1f;
+  --theme-primary: #20b2a6;
+  --theme-primary-fg: #ffffff;
+  --theme-secondary: #1f2830;
+  --theme-secondary-fg: #20b2a6;
+  --theme-muted: #252e37;
+  --theme-muted-fg: #7a8491;
+  --theme-border: #242b32;
+  --theme-highlight: #f5a623;
+  --theme-surface: #1a2329;
+}
+
+/* 2. Explicit Dark Theme Selector (Keeps variables stable when toggled) */
+[data-theme="dark"] {
   --theme-bg: #0f1418;
   --theme-fg: #f0f2f5;
   --theme-card: #141a1f;
@@ -24,7 +43,7 @@
   --theme-secondary: #e2e8f0;
   --theme-secondary-fg: #0f766e;
   --theme-muted: #e8eef4;
-   --theme-muted-fg: #64748b;
+  --theme-muted-fg: #64748b;
   --theme-border: #cbd5e1;
   --theme-highlight: #d97706;
   --theme-surface: #ffffff; 
@@ -211,4 +230,4 @@
         color-mix(in srgb, var(--color-primary) 35%, transparent),
       0 0 80px color-mix(in srgb, var(--color-primary) 25%, transparent);
   }
-} 
+}
