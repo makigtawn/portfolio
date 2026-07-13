@@ -3,7 +3,6 @@ import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 import { fileURLToPath } from "url";
-import { ContactError, sendPortfolioEmail } from "./lib/send-email.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -17,7 +16,7 @@ function readRequestBody(req) {
       try {
         resolve(JSON.parse(body || "{}"));
       } catch {
-        reject(new ContactError("Invalid request body.", 400));
+        reject(new ("Invalid request body.", 400));
       }
     });
     req.on("error", reject);
