@@ -45,7 +45,7 @@ export const Contact = () => {
   return (
     <section id="contact" className="py-25 relative overflow-hidden">
       <div className="container mx-auto relative z-10">
-        <h2 className="text-center max-w-3xl mx-auto mb-16 text-4xl md:text-5xl font-bold text-black">
+        <h2 className="text-center max-w-3xl mx-auto mb-16 text-4xl md:text-5xl font-bold text-black dark:text-white">
           contact me
         </h2>
 
@@ -148,8 +148,8 @@ export const Contact = () => {
                     href={item.href}
                     className="flex items-center gap-4 p-4  hover:bg-black/10 transition-colors group">
                     <div>
-                      <div className="text-black font-bold">{item.label}</div>
-                      <div className="font-medium">{item.value}</div>
+                      <div className="text-black dark:text-white font-bold">{item.label}</div>
+                      <div className="font-medium dark:text-white/50">{item.value}</div>
                     </div>
                   </a>
                 ))}
