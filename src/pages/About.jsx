@@ -30,19 +30,9 @@ export const About = () => {
 
           {/* Right Column  */}
 
-          <div className="relative hidden md:block">
-            <div className="relative max-w-xs lg:max-w-sm mx-auto">
-              <div className="relative bg-white p-1 rounded-3xl shadow-sm">
-                <img
-                  src="/profile-photo.png"
-                  alt="Meklit Girmaw"
-                  className="w-full max-h-[52vh] aspect-[4/5] object-cover rounded-2xl grayscale-[60%] transition-all "
-                />
-              </div>
-            </div>
-          </div>
+                  <SkillSection />
+
         </div>
-        <SkillSection />
       </div>
     </section>
   );

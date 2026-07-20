@@ -2,26 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button } from "@/components/Button";
 import { useState } from "react";
 
-const contactEmail = "meklitgirmaw@gmail.com";
 const successMessage = "Your message was recorded successfully!";
-
-const contactInfo = [
-  {
-    label: "Email",
-    value: contactEmail,
-    href: `mailto:${contactEmail}`,
-  },
-  {
-    label: "Phone",
-    value: "+251 970 369 110",
-    href: "tel:+251970369110",
-  },
-  {
-    label: "Location",
-    value: "Bahirdar, ET",
-    href: "#",
-  },
-];
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
@@ -37,7 +18,6 @@ export const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Just show success state and clear the inputs without sending anything
     setSubmitStatus({ type: "success", message: successMessage });
     setFormData({ name: "", email: "", message: "" });
   };
@@ -50,8 +30,8 @@ export const Contact = () => {
         </h2>
 
         <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
-          <div className="glass p-8 ">
-            <form className="space-y-6" onSubmit={handleSubmit}>
+          <div className="glass p-8 md:p-20">
+            <form className="space-y-2" onSubmit={handleSubmit}>
               <div>
                 <label
                   htmlFor="name"
@@ -68,7 +48,7 @@ export const Contact = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, name: e.target.value })
                   }
-                  className="w-full px-4 py-3 bg-surface border border-border focus:border-black focus:ring-1 focus:ring-black outline-none transition-all"
+                  className="w-full px-4 py-1 bg-surface border border-border focus:border-black focus:ring-1 focus:ring-black outline-none transition-all"
                 />
               </div>
 
@@ -88,7 +68,7 @@ export const Contact = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
                   }
-                  className="w-full px-4 py-3 bg-surface border border-border focus:border-black focus:ring-1 focus:ring-black outline-none transition-all"
+                  className="w-full px-4 py-1 bg-surface border border-border focus:border-black focus:ring-1 focus:ring-black outline-none transition-all"
                 />
               </div>
 
@@ -108,14 +88,14 @@ export const Contact = () => {
                     setFormData({ ...formData, message: e.target.value })
                   }
                   placeholder="Your message..."
-                  className="w-full px-4 py-3 bg-surface  border border-border focus:border-black focus:ring-1 focus:ring-black outline-none transition-all resize-none"
+                  className="w-full px-4 py-1 bg-surface  border border-border focus:border-black focus:ring-1 focus:ring-black outline-none transition-all resize-none"
                 />
               </div>
 
               <Button
                 className="w-full"
                 type="submit"
-                size="lg">
+                size="sm">
                 Submit
               </Button>
 
@@ -135,27 +115,7 @@ export const Contact = () => {
             </form>
           </div>
 
-          {/* Contact Info */}
-          <div className="space-y-12 ">
-            <div className="glass p-8">
-              <h3 className="text-xl font-semibold mb-6">
-                Contact Information
-              </h3>
-              <div className="space-y-4">
-                {contactInfo.map((item, i) => (
-                  <a
-                    key={i}
-                    href={item.href}
-                    className="flex items-center gap-4 p-4  hover:bg-black/10 transition-colors group">
-                    <div>
-                      <div className="text-black dark:text-white font-bold">{item.label}</div>
-                      <div className="font-medium dark:text-white/50">{item.value}</div>
-                    </div>
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
+          
         </div>
       </div>
     </section>

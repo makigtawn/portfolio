@@ -1,6 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
-import { TerminalDemo } from "../components/Terminal";
 
 function Hero() {
   const containerVariants = {
@@ -41,19 +40,19 @@ function Hero() {
           <div className="flex flex-col space-y-4">
             <motion.p
               variants={itemVariants}
-              className="text-xl text-brand-mutedLight dark:text-brand-mutedDark">
+              className="text-xl lg:text-3xl text-brand-mutedLight dark:text-brand-mutedDark">
               $ whoami
             </motion.p>
 
             <motion.h1
               variants={itemVariants}
-              className="text-3xl md:text-4xl font-extrabold tracking-tight">
+              className="text-xl lg:text-3xl font-extrabold tracking-tight">
               Meklit Girmaw
             </motion.h1>
 
             <motion.p
               variants={itemVariants}
-              className="text-sm md:text-base text-brand-mutedLight dark:text-brand-mutedDark">
+              className="text-sm lg:text-3xl md:text-base text-brand-mutedLight dark:text-brand-mutedDark">
               Frontend Developer
               <motion.span
                 animate={blinkAnimation}
@@ -64,14 +63,14 @@ function Hero() {
 
             <motion.p
               variants={itemVariants}
-              className="text-xs md:text-sm leading-relaxed text-brand-mutedLight dark:text-brand-mutedDark max-w-sm">
+              className="text-xs lg:text-lg md:text-sm leading-relaxed text-brand-mutedLight dark:text-brand-mutedDark max-w-sm">
               I build clean, thoughtful interfaces with a focus on detail,
               strict type structural restraint, and minimal footprint.
             </motion.p>
 
             <motion.div
               variants={itemVariants}
-              className="flex items-center gap-6">
+              className="flex items-center gap-6 lg:p-5">
               <a
                 href="#contact"
                 className="px-6 py-3 border-2 border-black bg-black text-white dark:text-black dark:bg-white hover:bg-white hover:text-black transition-colors">
@@ -87,7 +86,17 @@ function Hero() {
 
           {/* Right Column  */}
 
-          <TerminalDemo />
+            <div className="relative hidden md:block">
+            <div className="relative max-w-xs lg:max-w-sm mx-auto">
+              <div className="relative bg-white p-1 rounded-3xl shadow-sm">
+                <img
+                  src="/profile-photo.png"
+                  alt="Meklit Girmaw"
+                  className="w-full max-h-[52vh] aspect-[4/5] object-cover rounded-2xl grayscale-[60%] transition-all "
+                />
+              </div>
+            </div>
+          </div> 
         </div>
       </div>
     </motion.main>
