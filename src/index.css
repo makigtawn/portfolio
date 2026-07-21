@@ -16,6 +16,8 @@
   --theme-border: #242b32;
   --theme-highlight: #f5a623;
   --theme-surface: #1a2329;
+  --theme-danger: #ef4444;
+  --theme-danger-fg: #ffffff;
 }
 
 /* 2. Explicit Dark Theme Selector (Keeps variables stable when toggled) */
@@ -32,6 +34,8 @@
   --theme-border: #242b32;
   --theme-highlight: #f5a623;
   --theme-surface: #1a2329;
+  --theme-danger: #ef4444;
+  --theme-danger-fg: #ffffff;
 }
 
 [data-theme="light"] {
@@ -46,7 +50,9 @@
   --theme-muted-fg: #64748b;
   --theme-border: #cbd5e1;
   --theme-highlight: #d97706;
-  --theme-surface: #ffffff; 
+  --theme-surface: #ffffff;
+  --theme-danger: #dc2626;
+  --theme-danger-fg: #ffffff;
 }
 
 @theme {
@@ -70,6 +76,8 @@
 
   --color-highlight: var(--theme-highlight);
   --color-surface: var(--theme-surface);
+  --color-danger: var(--theme-danger);
+  --color-danger-foreground: var(--theme-danger-fg);
 }
 
 @layer base {

@@ -1,14 +1,19 @@
-import { Button } from "@/components/Button";
+import { Link, NavLink } from "react-router-dom";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 
 const navLinks = [
-  { href: "#about", label: "About" },
-  { href: "#projects", label: "Projects" },
-  { href: "#experience", label: "Experience" },
+  { to: "/about", label: "About" },
+  { to: "/projects", label: "Projects" },
+  { to: "/contact", label: "Contact" },
 ];
+
+const linkClasses = ({ isActive }) =>
+  `px-4 py-2 text-sm rounded-full hover:bg-surface ${
+    isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+  }`;
 
 export const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -30,22 +35,17 @@ export const Navbar = () => {
         isScrolled ? "glass-strong py-3" : "bg-transparent py-5"
       }  z-50`}>
       <nav className="container mx-auto px-6 flex items-center justify-between">
-        <a
-          href="#"
-          className="text-xl font-bold tracking-tight hover:text-primary">
+        <Link to="/" className="text-xl font-bold tracking-tight hover:text-primary">
           MG<span className="text-primary">.</span>
-        </a>
+        </Link>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-1">
           <div className="glass rounded-full px-2 py-1 flex items-center gap-1">
-            {navLinks.map((link, index) => (
-              <a
-                href={link.href}
-                key={index}
-                className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground rounded-full hover:bg-surface">
+            {navLinks.map((link) => (
+              <NavLink to={link.to} key={link.to} className={linkClasses}>
                 {link.label}
-              </a>
+              </NavLink>
             ))}
           </div>
         </div>
@@ -78,17 +78,15 @@ export const Navbar = () => {
               <span className="text-sm text-muted-foreground">Appearance</span>
               <ThemeToggle />
             </div>
-            {navLinks.map((link, index) => (
-              <a
-                href={link.href}
-                key={index}
+            {navLinks.map((link) => (
+              <NavLink
+                to={link.to}
+                key={link.to}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="text-lg text-muted-foreground hover:text-foreground py-2">
                 {link.label}
-              </a>
+              </NavLink>
             ))}
-
-            
           </div>
         </div>
       )}
