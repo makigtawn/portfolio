@@ -1,25 +1,38 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button } from "@/components/Button";
 import { useState } from "react";
+import { apiPost } from "@/lib/api";
 
 const successMessage = "Your message was recorded successfully!";
+const categories = ["General", "Collaboration", "Job Opportunity", "Other"];
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    category: categories[0],
     message: "",
   });
   const [submitStatus, setSubmitStatus] = useState({
     type: null,
     message: "",
   });
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setSubmitting(true);
+    setSubmitStatus({ type: null, message: "" });
 
-    setSubmitStatus({ type: "success", message: successMessage });
-    setFormData({ name: "", email: "", message: "" });
+    try {
+      await apiPost("/api/contact", formData);
+      setSubmitStatus({ type: "success", message: successMessage });
+      setFormData({ name: "", email: "", category: categories[0], message: "" });
+    } catch (err) {
+      setSubmitStatus({ type: "error", message: err.message });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -74,6 +87,28 @@ export const Contact = () => {
 
               <div>
                 <label
+                  htmlFor="category"
+                  className="block text-sm font-medium mb-2">
+                  What's this about?
+                </label>
+                <select
+                  id="category"
+                  name="category"
+                  value={formData.category}
+                  onChange={(e) =>
+                    setFormData({ ...formData, category: e.target.value })
+                  }
+                  className="w-full px-4 py-1 bg-surface border border-border focus:border-black focus:ring-1 focus:ring-black outline-none transition-all">
+                  {categories.map((c) => (
+                    <option key={c} value={c}>
+                      {c}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div>
+                <label
                   htmlFor="message"
                   className="block text-sm font-medium mb-2">
                   Message
@@ -95,8 +130,9 @@ export const Contact = () => {
               <Button
                 className="w-full"
                 type="submit"
-                size="sm">
-                Submit
+                size="sm"
+                disabled={submitting}>
+                {submitting ? "Sending..." : "Submit"}
               </Button>
 
               {submitStatus.type && (

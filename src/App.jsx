@@ -1,24 +1,40 @@
-import Hero from "./pages/Hero";
-import { Navbar } from "../src/layout/Navbar";
-import { About } from "../src/pages/About";
-import { Projects } from "../src/pages/Projects";
-import { Contact } from "../src/pages/Contact";
-import Footer from "./layout/Footer";
+import { Routes, Route } from "react-router-dom";
+import { PublicLayout } from "./layout/PublicLayout";
+import { Home } from "./pages/Home";
+import { About } from "./pages/About";
+import { Projects } from "./pages/Projects";
+import { ProjectDetail } from "./pages/ProjectDetail";
+import { Contact } from "./pages/Contact";
+import { AdminLogin } from "./pages/admin/AdminLogin";
+import { AdminDashboard } from "./pages/admin/AdminDashboard";
+import { AdminProjects } from "./pages/admin/AdminProjects";
+import { AdminProjectNew } from "./pages/admin/AdminProjectNew";
+import { AdminMessages } from "./pages/admin/AdminMessages";
+import { AdminContent } from "./pages/admin/AdminContent";
+import { AdminLayout } from "./layout/AdminLayout";
+import { ProtectedRoute } from "./components/ProtectedRoute";
 
 function App() {
   return (
-    <div className="min-h-screen transition-colors duration-300 bg-brand-bgLight text-brand-fgLight dark:bg-brand-bgDark dark:text-brand-fgDark font-mono select-none">
-      <div className="max-w-7xl mx-auto lg:p-14 md:p-8">
-        <Navbar />
-        <main>
-          <Hero />
-          <About />
-          <Projects />
-          <Contact />
-        </main>
-        <Footer />
-      </div>
-    </div>
+    <Routes>
+      <Route element={<PublicLayout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/projects/:id" element={<ProjectDetail />} />
+        <Route path="/contact" element={<Contact />} />
+      </Route>
+      <Route path="/admin/login" element={<AdminLogin />} />
+      <Route element={<ProtectedRoute />}>
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route index element={<AdminDashboard />} />
+          <Route path="projects" element={<AdminProjects />} />
+          <Route path="projects/new" element={<AdminProjectNew />} />
+          <Route path="messages" element={<AdminMessages />} />
+          <Route path="content" element={<AdminContent />} />
+        </Route>
+      </Route>
+    </Routes>
   );
 }
 

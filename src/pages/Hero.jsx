@@ -1,7 +1,20 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { useSiteContent } from "@/hooks/useSiteContent";
+
+const fallback = {
+  greeting: "$ whoami",
+  name: "Meklit Girmaw",
+  title: "Frontend Developer",
+  tagline:
+    "I build clean, thoughtful interfaces with a focus on detail, strict type structural restraint, and minimal footprint.",
+  resumeUrl: "",
+};
 
 function Hero() {
+  const { content } = useSiteContent();
+  const hero = content?.hero?.name ? content.hero : fallback;
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -41,19 +54,19 @@ function Hero() {
             <motion.p
               variants={itemVariants}
               className="text-xl lg:text-3xl text-brand-mutedLight dark:text-brand-mutedDark">
-              $ whoami
+              {hero.greeting}
             </motion.p>
 
             <motion.h1
               variants={itemVariants}
               className="text-xl lg:text-3xl font-extrabold tracking-tight">
-              Meklit Girmaw
+              {hero.name}
             </motion.h1>
 
             <motion.p
               variants={itemVariants}
               className="text-sm lg:text-3xl md:text-base text-brand-mutedLight dark:text-brand-mutedDark">
-              Frontend Developer
+              {hero.title}
               <motion.span
                 animate={blinkAnimation}
                 className="inline-block ml-1 font-bold">
@@ -64,20 +77,19 @@ function Hero() {
             <motion.p
               variants={itemVariants}
               className="text-xs lg:text-lg md:text-sm leading-relaxed text-brand-mutedLight dark:text-brand-mutedDark max-w-sm">
-              I build clean, thoughtful interfaces with a focus on detail,
-              strict type structural restraint, and minimal footprint.
+              {hero.tagline}
             </motion.p>
 
             <motion.div
               variants={itemVariants}
               className="flex items-center gap-6 lg:p-5">
-              <a
-                href="#contact"
+              <Link
+                to="/contact"
                 className="px-6 py-3 border-2 border-black bg-black text-white dark:text-black dark:bg-white hover:bg-white hover:text-black transition-colors">
                 Get in touch
-              </a>
+              </Link>
               <a
-                href="#"
+                href={hero.resumeUrl || "#"}
                 className="relative inline-block hover:text-zinc-500 after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:bg-zinc-500 after:transition-transform after:duration-300 hover:after:scale-x-100">
                 View Resume
               </a>

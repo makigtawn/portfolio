@@ -1,57 +1,22 @@
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "../components/Button";
 import { FaGithub } from "react-icons/fa";
-const projects = [
-  // {
-  //   title: "AI Writing Assistant",
-  //   description:
-  //     "An intelligent writing tool powered by Gemini, helping users create better content faster.",
-  //   image: "/projects/project5.png",
-  //   tags: ["React", "OpenAI", "Python", "FastAPI"],
-  //   link: "#",
-  //   github: "#",
-  // },
-  {
-    title: "Strata",
-    description:
-      "strata is AI powered fast candidate screening platform for employers",
-    image: "/projects/project.png",
-    tags: ["React", "Javascript", "postgres", "supabase", "JWT", "Tailwindcss"],
-    link: "https://strata-hire.vercel.app",
-    github: "https://github.com/makigtawn/strata",
-  },
-  {
-    title: "bahirdar university",
-    description:
-      "Simple and Interactive version of my university website, which the main is scattered and hard to communicate with.",
-    image: "/projects/project3.png",
-    tags: ["HTML5", "CSS", "Javascript"],
-    link: "https://bahirdaruniversity.vercel.app",
-    github: "https://github.com/makigtawn/bahirdaruniversity",
-  },
-  {
-    title: "Qandil ",
-    description: "AI-based personalized learning platform ",
-    image: "/projects/project1.png",
-
-    tags: ["React", "Typescript", "NodeJS", "Mongodb"],
-    link: "https://qandil-ai.vercel.app/",
-    github: "https://github.com/makigtawn/Qandil-ai",
-  },
-  {
-    title: "Clinic patient queue management system ",
-    description:
-      " a project which was given for data structure and algorithm assignment in my software engineering department instructor .",
-    image: "/projects/project2.png",
-    tags: ["html", "css", "javascript", "c++"],
-    link: "#",
-    github:
-      "https://github.com/makigtawn/clinic-patient-queue-management-system",
-  },
-];
+import { apiGet } from "@/lib/api";
 
 export const Projects = () => {
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    apiGet("/api/projects")
+      .then((data) => setProjects(data.projects))
+      .catch(() => setProjects([]))
+      .finally(() => setLoading(false));
+  }, []);
+
   return (
     <section id="projects" className="relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
@@ -60,14 +25,22 @@ export const Projects = () => {
           <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 text-primary">
             Projects
           </h2>
-          
+
         </div>
+
+        {loading && (
+          <p className="text-center text-muted-foreground">Loading projects...</p>
+        )}
+
+        {!loading && projects.length === 0 && (
+          <p className="text-center text-muted-foreground">No projects yet.</p>
+        )}
 
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 gap-8">
           {projects.map((project, idx) => (
             <div
-              key={idx}
+              key={project._id}
               className="group glass rounded-2xl overflow-hidden animate-fade-in md:row-span-1"
               style={{ animationDelay: `${(idx + 1) * 100}ms` }}>
               {/* Image */}
@@ -104,9 +77,11 @@ export const Projects = () => {
              
               {/* Content */}
               <div className="p-6 space-y-4">
-                <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
-                  {project.title}
-                </h3>
+                <Link to={`/projects/${project._id}`}>
+                  <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
+                    {project.title}
+                  </h3>
+                </Link>
 
                 <p className="text-muted-foreground text-sm">
                   {project.description}

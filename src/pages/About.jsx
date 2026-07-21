@@ -1,7 +1,18 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SkillSection from "../components/SkillSection";
+import { useSiteContent } from "@/hooks/useSiteContent";
+
+const fallback = {
+  heading: "Building modern web apps\nwith clean architecture.",
+  bodyText:
+    "I'm a Full Stack Developer who enjoys building simple, useful, and user-friendly web applications. I like working with teams, solving real problems, and learning new technologies. My goal is to create products that help people while growing my skills and building a successful career.",
+};
 
 export const About = () => {
+  const { content } = useSiteContent();
+  const about = content?.about?.bodyText ? content.about : fallback;
+  const headingLines = about.heading.split("\n");
+
   return (
     <section id="about" className="py-20 relative overflow-hidden  ">
       <div className="container mx-auto px-6 relative z-10">
@@ -14,17 +25,15 @@ export const About = () => {
           {/* Left Column */}
           <div className="space-y-6 ">
             <h2 className="text-2xl md:text-4xl font-bold leading-tight text-foreground">
-              Building modern web apps
-              <br /> with clean architecture.
+              {headingLines.map((line, i) => (
+                <span key={i}>
+                  {i > 0 && <br />}
+                  {line}
+                </span>
+              ))}
             </h2>
             <div className="space-y-4 text-muted-foreground ">
-              <p className="text-align ">
-                I'm a Full Stack Developer who enjoys building simple, useful,
-                and user-friendly web applications. I like working with teams,
-                solving real problems, and learning new technologies. My goal is
-                to create products that help people while growing my skills and
-                building a successful career.
-              </p>
+              <p className="text-align ">{about.bodyText}</p>
             </div>
           </div>
 
