@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { FaGithub } from "react-icons/fa";
 import { Button } from "@/components/Button";
 import { authClient } from "@/lib/authClient";
 
@@ -23,6 +24,17 @@ export const AdminLogin = () => {
       navigate("/admin", { replace: true });
     } finally {
       setSubmitting(false);
+    }
+  };
+
+  const handleGithubSignIn = async () => {
+    setError("");
+    const { error: signInError } = await authClient.signIn.social({
+      provider: "github",
+      callbackURL: "/admin",
+    });
+    if (signInError) {
+      setError(signInError.message || "GitHub sign-in isn't configured.");
     }
   };
 
@@ -76,6 +88,17 @@ export const AdminLogin = () => {
             {submitting ? "Signing in..." : "Sign in"}
           </Button>
         </form>
+
+        <div className="flex items-center gap-3">
+          <div className="h-px flex-1 bg-border" />
+          <span className="text-xs text-muted-foreground">or</span>
+          <div className="h-px flex-1 bg-border" />
+        </div>
+
+        <Button type="button" variant="ghost" className="w-full" onClick={handleGithubSignIn}>
+          <FaGithub className="h-4 w-4 mr-2" />
+          Sign in with GitHub
+        </Button>
       </div>
     </div>
   );

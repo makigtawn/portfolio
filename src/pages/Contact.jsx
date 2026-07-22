@@ -1,4 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { motion } from "framer-motion";
 import { Button } from "@/components/Button";
 import { useState } from "react";
 import { apiPost } from "@/lib/api";
@@ -43,7 +44,12 @@ export const Contact = () => {
         </h2>
 
         <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
-          <div className="glass p-8 md:p-20">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="glass p-8 md:p-20">
             <form className="space-y-2" onSubmit={handleSubmit}>
               <div>
                 <label
@@ -149,9 +155,9 @@ export const Contact = () => {
                 </div>
               )}
             </form>
-          </div>
+          </motion.div>
 
-          
+
         </div>
       </div>
     </section>

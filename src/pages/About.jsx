@@ -1,6 +1,12 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { motion } from "framer-motion";
 import SkillSection from "../components/SkillSection";
 import { useSiteContent } from "@/hooks/useSiteContent";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
 
 const fallback = {
   heading: "Building modern web apps\nwith clean architecture.",
@@ -23,7 +29,12 @@ export const About = () => {
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 md: gap-12 items-center">
           {/* Left Column */}
-          <div className="space-y-6 ">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="space-y-6 ">
             <h2 className="text-2xl md:text-4xl font-bold leading-tight text-foreground">
               {headingLines.map((line, i) => (
                 <span key={i}>
@@ -35,12 +46,17 @@ export const About = () => {
             <div className="space-y-4 text-muted-foreground ">
               <p className="text-align ">{about.bodyText}</p>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column  */}
-
-                  <SkillSection />
-
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ delay: 0.15 }}>
+            <SkillSection />
+          </motion.div>
         </div>
       </div>
     </section>

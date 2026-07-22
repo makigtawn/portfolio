@@ -51,6 +51,7 @@ export const ProjectDetail = () => {
                       key={i}
                       src={src}
                       alt={`${project.title} screenshot ${i + 1}`}
+                      loading="lazy"
                       className="w-full rounded-lg object-cover"
                     />
                   ))}

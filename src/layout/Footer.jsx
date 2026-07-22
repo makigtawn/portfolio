@@ -8,6 +8,7 @@ import {
   FaMedium,
   FaMailBulk,
   FaMailchimp,
+  FaDev,
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
@@ -26,9 +27,8 @@ const Footer = () => {
           </div>
 
           <div className="flex justify-center space-x-6">
-            <a href="#" className=" transition-colors">
-              <FaMedium className="h-6 w-6" />
-            </a>
+            <a href="https://dev.to/makigtawn" className=" transition-colors">
+<FaDev className="h-6 w-6" />            </a>
             
             <a href={`mailto:${contactEmail}`} className=" transition-colors" aria-label="Email me">
               <FaEnvelope className="h-6 w-6" />

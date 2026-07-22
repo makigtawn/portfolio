@@ -87,6 +87,10 @@ npm --prefix server run start   # backend (no build step; runs directly)
 
 Deploy the frontend (`dist/`) and `server/` as separate services (e.g. Vercel for the frontend, Railway/Render for the backend). Set `VITE_API_URL` (frontend) to the deployed backend URL, and `CLIENT_ORIGIN`/`BETTER_AUTH_URL` (backend) to your deployed frontend/backend URLs respectively — use `https://` URLs in production so Better Auth marks the session cookie `Secure`.
 
+## CI
+
+`.github/workflows/ci.yml` runs lint/build on every push and PR.
+
 ## Notes
 
 - There is no public registration route — the only way to create an admin account is the seed script above.

@@ -8,11 +8,11 @@ export async function createMessage(req, res, next) {
 
     const doc = await Message.create({ name, email, category, message });
 
-    try {
-      await sendContactNotification(doc);
-    } catch (mailErr) {
+    // Don't make the visitor wait on an SMTP round-trip — the message is
+    // already durably stored, so the notification email is best-effort.
+    sendContactNotification(doc).catch((mailErr) => {
       console.error("[contact] notification email failed:", mailErr.message);
-    }
+    });
 
     res.status(201).json({ success: true });
   } catch (err) {
