@@ -24,7 +24,7 @@ export const AdminProjectNew = () => {
   return (
     <div className="space-y-6 max-w-2xl">
       <div className="flex items-center gap-4">
-        <span className="font-mono text-[11px] text-primary border border-amber-dim px-2 py-0.5 rounded-sm tracking-[.2em]">
+        <span className="font-mono text-xs text-primary border border-amber-dim px-2 py-0.5 rounded-sm tracking-[.2em]">
           CH·01
         </span>
         <h1 className="font-serif text-2xl text-foreground tracking-wide">New broadcast</h1>

@@ -4,6 +4,7 @@ import axios from "axios";
 // (localhost:5173) and Vite's dev proxy forwards /api/* to Express, which
 // keeps the Better Auth session cookie same-origin from the browser's view.
 const BASE_URL = import.meta.env.VITE_API_URL ?? "";
+console.log("base url: ", BASE_URL)
 
 const client = axios.create({
   baseURL: BASE_URL,

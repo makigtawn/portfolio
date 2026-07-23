@@ -26,7 +26,7 @@ export const Broadcasts = () => {
   return (
     <section id="broadcasts" className="max-w-4xl mx-auto px-8 py-24 relative z-10">
       <div className="flex items-center gap-4 mb-12">
-        <span className="font-mono text-[11px] lg:text-[12px] text-amber-radio border border-amber-dim px-2 py-0.5 rounded-sm tracking-[.2em]">
+        <span className="font-mono text-xs text-amber-radio border border-amber-dim px-2 py-0.5 rounded-sm tracking-[.2em]">
           CH·01
         </span>
         <h2 className="font-serif text-2xl lg:text-3xl text-text-radio tracking-wide">Broadcasts</h2>
@@ -34,11 +34,11 @@ export const Broadcasts = () => {
       </div>
 
       {loading && (
-        <p className="font-mono text-[12px] text-text-dim">Scanning frequencies...</p>
+        <p className="font-mono text-xs text-text-dim">Scanning frequencies...</p>
       )}
 
       {!loading && projects.length === 0 && (
-        <p className="font-mono text-[12px] text-text-dim">No signal detected.</p>
+        <p className="font-mono text-xs text-text-dim">No signal detected.</p>
       )}
 
       <div className="divide-y divide-border-radio border-t border-border-radio">
@@ -54,15 +54,15 @@ export const Broadcasts = () => {
               <div className="absolute left-[-2rem] top-0 bottom-0 w-0.5 bg-amber-radio opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
 
               <div>
-                <p className="font-mono text-[13px] lg:text-[14px] text-amber-radio tracking-[.06em]">{meta.freq}</p>
-                <p className="font-mono text-[9px] text-text-dim mt-1 tracking-[.08em]">
+                <p className="font-mono text-sm text-amber-radio tracking-[.06em]">{meta.freq}</p>
+                <p className="font-mono text-xs text-text-dim mt-1 tracking-[.08em]">
                   {SIGNAL_ICON[meta.signal]} {meta.signal}
                 </p>
               </div>
 
               <div>
                 <h3 className="font-serif text-xl lg:text-2xl text-text-radio mb-1.5">{project.title}</h3>
-                <p className="text-[13px] lg:text-[15px] text-text-dim leading-relaxed max-w-lg">
+                <p className="text-sm lg:text-base text-text-dim leading-relaxed max-w-lg">
                   {project.description}
                 </p>
                 {!!project.tags?.length && (
@@ -70,7 +70,7 @@ export const Broadcasts = () => {
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="font-mono text-[9px] tracking-[.1em] uppercase text-amber-dim border border-border-radio bg-bg-radio-2 px-1.5 py-0.5 rounded-sm">
+                        className="font-mono text-xs tracking-[.1em] uppercase text-amber-dim border border-border-radio bg-bg-radio-2 px-1.5 py-0.5 rounded-sm">
                         {tag}
                       </span>
                     ))}
@@ -80,14 +80,14 @@ export const Broadcasts = () => {
 
               <div className="hidden sm:flex flex-col items-end gap-1.5 pt-0.5">
                 <span
-                  className={`font-mono text-[9px] tracking-[.12em] uppercase px-2 py-0.5 rounded-sm border ${
+                  className={`font-mono text-xs tracking-[.12em] uppercase px-2 py-0.5 rounded-sm border ${
                     meta.status === "live"
                       ? "text-signal-green border-signal-green bg-[rgba(64,128,48,.08)]"
                       : "text-text-dim border-border-radio"
                   }`}>
                   {meta.status}
                 </span>
-                <span className="font-mono text-[10px] text-text-dim">{meta.year}</span>
+                <span className="font-mono text-xs text-text-dim">{meta.year}</span>
               </div>
             </a>
           );

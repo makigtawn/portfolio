@@ -12,7 +12,7 @@ const navItems = [
 ];
 
 const linkClasses = ({ isActive }) =>
-  `flex items-center gap-2 px-4 py-2 border-l-2 font-mono text-[11px] tracking-[.1em] uppercase transition-colors ${
+  `flex items-center gap-2 px-4 py-2 border-l-2 font-mono text-xs tracking-[.1em] uppercase transition-colors ${
     isActive
       ? "border-primary text-primary"
       : "border-transparent text-muted-foreground hover:text-foreground"
@@ -72,7 +72,7 @@ export const AdminLayout = () => {
             </div>
             <button
               onClick={handleLogout}
-              className="font-mono text-[11px] uppercase tracking-[.1em] text-muted-foreground hover:text-primary px-3 py-2 transition-colors">
+              className="font-mono text-xs uppercase tracking-[.1em] text-muted-foreground hover:text-primary px-3 py-2 transition-colors">
               Log out
             </button>
           </div>
@@ -101,7 +101,7 @@ export const AdminLayout = () => {
           </div>
           <button
             onClick={handleLogout}
-            className="font-mono text-[11px] uppercase tracking-[.1em] text-muted-foreground hover:text-primary px-0 py-2 transition-colors w-fit">
+            className="font-mono text-xs uppercase tracking-[.1em] text-muted-foreground hover:text-primary px-0 py-2 transition-colors w-fit">
             Log out
           </button>
         </div>

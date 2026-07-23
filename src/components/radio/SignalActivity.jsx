@@ -22,7 +22,7 @@ function LoadingState() {
         className="w-1.5 h-1.5 bg-amber-dim rounded-full animate-pulse"
         style={{ animationDelay: "0.4s" }}
       />
-      <span className="font-mono text-[11px] lg:text-[12px] text-text-dim ml-2">
+      <span className="font-mono text-xs text-text-dim ml-2">
         Tuning into github.com/makigtawn
       </span>
     </div>
@@ -31,7 +31,7 @@ function LoadingState() {
 
 function ErrorState() {
   return (
-    <p className="font-mono text-[11px] lg:text-[12px] text-text-dim text-center py-10">
+    <p className="font-mono text-xs text-text-dim text-center py-10">
       Signal lost · Could not reach github.com/makigtawn
     </p>
   );
@@ -101,7 +101,7 @@ export const SignalActivity = () => {
   return (
     <section id="github" className="max-w-4xl mx-auto px-8 py-24 relative z-10">
       <div className="flex items-center gap-4 mb-12">
-        <span className="font-mono text-[11px] lg:text-[12px] text-amber-radio border border-amber-dim px-2 py-0.5 rounded-sm tracking-[.2em]">
+        <span className="font-mono text-xs text-amber-radio border border-amber-dim px-2 py-0.5 rounded-sm tracking-[.2em]">
           CH·04
         </span>
         <h2 className="font-serif text-2xl lg:text-3xl text-text-radio tracking-wide">
@@ -111,7 +111,7 @@ export const SignalActivity = () => {
       </div>
 
       <div className="bg-bg-radio-2 border border-border-radio rounded-sm p-8 relative">
-        <span className="absolute -top-[9px] left-6 bg-bg-radio-2 px-2 font-mono text-[9px] tracking-[.18em] text-amber-radio">
+        <span className="absolute -top-[9px] left-6 bg-bg-radio-2 px-2 font-mono text-xs tracking-[.18em] text-amber-radio">
           TRANSMISSION ACTIVITY · github.com/makigtawn
         </span>
 
@@ -126,7 +126,7 @@ export const SignalActivity = () => {
                   {DOW_LABELS.map((label, i) => (
                     <span
                       key={i}
-                      className="h-[10px] mb-[3px] font-mono text-[8px] text-text-dim leading-none">
+                      className="h-[10px] mb-[3px] font-mono text-xs text-text-dim leading-none">
                       {label}
                     </span>
                   ))}
@@ -137,7 +137,7 @@ export const SignalActivity = () => {
                     {monthLabels.map(({ label, weekIndex }) => (
                       <span
                         key={weekIndex}
-                        className="absolute font-mono text-[9px] text-text-dim tracking-[.05em]"
+                        className="absolute font-mono text-xs text-text-dim tracking-[.05em]"
                         style={{ left: weekIndex * CELL_COL_WIDTH }}>
                         {label}
                       </span>
@@ -165,7 +165,7 @@ export const SignalActivity = () => {
 
             <div className="mt-6 pt-6 border-t border-border-radio flex gap-8 flex-wrap items-center">
               <div className="flex flex-col gap-1">
-                <span className="font-mono text-[9px] tracking-[.15em] uppercase text-amber-dim">
+                <span className="font-mono text-xs tracking-[.15em] uppercase text-amber-dim">
                   Total last year
                 </span>
                 <span className="font-serif text-lg lg:text-xl text-amber-radio">
@@ -174,7 +174,7 @@ export const SignalActivity = () => {
               </div>
 
               <div className="flex flex-col gap-1">
-                <span className="font-mono text-[9px] tracking-[.15em] uppercase text-amber-dim">
+                <span className="font-mono text-xs tracking-[.15em] uppercase text-amber-dim">
                   Station
                 </span>
                 <span className="font-serif text-lg lg:text-xl text-text-radio">
@@ -187,7 +187,7 @@ export const SignalActivity = () => {
               </div>
 
               <div className="flex flex-col gap-1">
-                <span className="font-mono text-[9px] tracking-[.15em] uppercase text-amber-dim">
+                <span className="font-mono text-xs tracking-[.15em] uppercase text-amber-dim">
                   Signal strength
                 </span>
                 <div className="flex gap-1">
@@ -200,10 +200,10 @@ export const SignalActivity = () => {
                         style={{ background: COLORS[level] }}
                       />
                       {level === 0 && (
-                        <span className="text-[8px] text-text-dim">None</span>
+                        <span className="text-xs text-text-dim">None</span>
                       )}
                       {level === 4 && (
-                        <span className="text-[8px] text-text-dim">Max</span>
+                        <span className="text-xs text-text-dim">Max</span>
                       )}
                     </div>
                   ))}
@@ -215,7 +215,7 @@ export const SignalActivity = () => {
 
         {tooltip && (
           <div
-            className="fixed z-50 pointer-events-none -translate-x-1/2 -translate-y-full bg-bg-radio-2 border border-border-radio rounded-sm px-2 py-1 font-mono text-[10px] text-text-radio whitespace-nowrap"
+            className="fixed z-50 pointer-events-none -translate-x-1/2 -translate-y-full bg-bg-radio-2 border border-border-radio rounded-sm px-2 py-1 font-mono text-xs text-text-radio whitespace-nowrap"
             style={{ left: tooltip.x, top: tooltip.y }}>
             {tooltip.text}
           </div>

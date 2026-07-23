@@ -4,7 +4,7 @@ import { Button } from "@/components/Button";
 const inputClasses =
   "w-full px-4 py-2 bg-secondary border border-border text-foreground font-mono focus:border-primary focus:ring-2 focus:ring-[rgba(212,160,48,.15)] outline-none transition-all";
 
-const labelClasses = "block font-mono text-[10px] uppercase tracking-[.15em] text-muted-foreground mb-2";
+const labelClasses = "block font-mono text-xs uppercase tracking-[.15em] text-muted-foreground mb-2";
 
 export const HeroContentForm = ({ hero, onSubmit, submitting }) => {
   const [form, setForm] = useState(hero);
@@ -18,7 +18,7 @@ export const HeroContentForm = ({ hero, onSubmit, submitting }) => {
         onSubmit(form);
       }}
       className="bg-card border border-border rounded-sm p-6 pt-8 space-y-4 relative">
-      <span className="absolute -top-[9px] left-6 bg-card px-2 font-mono text-[9px] tracking-[.18em] text-primary">
+      <span className="absolute -top-[9px] left-6 bg-card px-2 font-mono text-xs tracking-[.18em] text-primary">
         HERO
       </span>
 

@@ -2,7 +2,7 @@ import { Button } from "@/components/Button";
 
 export const ProjectTable = ({ projects, onEdit, onDelete }) => {
   if (projects.length === 0) {
-    return <p className="font-mono text-[12px] text-muted-foreground">No projects yet.</p>;
+    return <p className="font-mono text-xs text-muted-foreground">No projects yet.</p>;
   }
 
   return (
@@ -10,16 +10,16 @@ export const ProjectTable = ({ projects, onEdit, onDelete }) => {
       <table className="w-full text-sm">
         <thead>
           <tr className="text-left border-b border-border">
-            <th className="p-4 font-mono text-[10px] uppercase tracking-[.15em] text-muted-foreground">
+            <th className="p-4 font-mono text-xs uppercase tracking-[.15em] text-muted-foreground">
               Title
             </th>
-            <th className="p-4 font-mono text-[10px] uppercase tracking-[.15em] text-muted-foreground">
+            <th className="p-4 font-mono text-xs uppercase tracking-[.15em] text-muted-foreground">
               Category
             </th>
-            <th className="p-4 font-mono text-[10px] uppercase tracking-[.15em] text-muted-foreground">
+            <th className="p-4 font-mono text-xs uppercase tracking-[.15em] text-muted-foreground">
               Featured
             </th>
-            <th className="p-4 text-right font-mono text-[10px] uppercase tracking-[.15em] text-muted-foreground">
+            <th className="p-4 text-right font-mono text-xs uppercase tracking-[.15em] text-muted-foreground">
               Actions
             </th>
           </tr>

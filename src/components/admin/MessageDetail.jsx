@@ -3,7 +3,7 @@ import { Button } from "@/components/Button";
 export const MessageDetail = ({ message, onStatusChange, onDelete }) => {
   if (!message) {
     return (
-      <div className="bg-card border border-border rounded-sm p-8 text-center font-mono text-[12px] text-muted-foreground">
+      <div className="bg-card border border-border rounded-sm p-8 text-center font-mono text-xs text-muted-foreground">
         Select a message to view it.
       </div>
     );
@@ -18,14 +18,14 @@ export const MessageDetail = ({ message, onStatusChange, onDelete }) => {
             {message.email}
           </a>
         </div>
-        <span className="font-mono text-[9px] uppercase tracking-[.1em] text-muted-foreground border border-border rounded-sm px-2 py-1">
+        <span className="font-mono text-xs uppercase tracking-[.1em] text-muted-foreground border border-border rounded-sm px-2 py-1">
           {message.category}
         </span>
       </div>
 
       <p className="whitespace-pre-wrap text-sm leading-relaxed">{message.message}</p>
 
-      <p className="font-mono text-[10px] text-muted-foreground">
+      <p className="font-mono text-xs text-muted-foreground">
         {new Date(message.createdAt).toLocaleString()}
       </p>
 

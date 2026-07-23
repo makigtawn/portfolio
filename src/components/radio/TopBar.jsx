@@ -11,7 +11,7 @@ export const TopBar = () => {
     <div className="fixed top-0 left-0 right-0 h-11 lg:h-15 bg-bg-radio-2 border-b border-border-radio z-50 flex flex-row px-8 items-center">
       <div className="flex items-center">
         <span className="animate-blink w-2 h-2 rounded-full bg-signal-red inline-block" />
-        <span className="font-mono text-amber-radio text-[13px] lg:text-[14px] tracking-[.15em] ml-2">
+        <span className="font-mono text-amber-radio text-sm tracking-[.15em] ml-2">
           MEKLIT
         </span>
       </div>

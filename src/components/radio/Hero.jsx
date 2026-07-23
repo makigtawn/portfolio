@@ -29,7 +29,7 @@ export const Hero = () => {
         <VUMeter />
       </div>
 
-      <p className="font-mono text-[11px] lg:text-[13px] tracking-[.3em] text-text-dim uppercase mb-5">
+      <p className="font-mono text-xs lg:text-sm tracking-[.3em] text-text-dim uppercase mb-5">
         {hero.title}
       </p>
 
@@ -50,7 +50,7 @@ export const Hero = () => {
           {ticks.map((tick) => (
             <div key={tick} className="flex flex-col items-center">
               <div className={`w-px bg-amber-dim ${tick === 96 ? "h-5 bg-amber-radio" : "h-3"}`} />
-              <span className="font-mono text-[9px] text-text-dim mt-1">{tick}</span>
+              <span className="font-mono text-xs text-text-dim mt-1">{tick}</span>
             </div>
           ))}
         </div>
@@ -62,14 +62,14 @@ export const Hero = () => {
       </div>
 
       <p
-        className="font-mono text-[22px] lg:text-[26px] text-amber-glow tracking-[.1em] mb-10"
+        className="font-mono text-2xl text-amber-glow tracking-[.1em] mb-10"
         style={{ textShadow: "0 0 20px rgba(240,192,96,.4)" }}>
         {freq} MHz
       </p>
 
       <a
         href="#broadcasts"
-        className="animate-bounce-slow font-mono text-[10px] lg:text-[11px] tracking-[.2em] text-text-dim uppercase flex items-center gap-2">
+        className="animate-bounce-slow font-mono text-xs tracking-[.2em] text-text-dim uppercase flex items-center gap-2">
         ▼ Tune in below
       </a>
     </section>

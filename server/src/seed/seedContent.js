@@ -23,11 +23,11 @@ const content = {
       },
       {
         time: "00:00:09",
-        text: "Works best in hard problems — systems needing rebuilding, products needing to ship, codebases people are afraid to touch.",
+        text: "Works best in hard problems - systems needing rebuilding, products needing to ship, codebases people are afraid to touch.",
       },
       {
         time: "00:00:14",
-        text: "Believes good code is invisible — it just works, quietly, like a signal always there.",
+        text: "Believes good code is invisible - it just works, quietly, like a signal always there.",
       },
       {
         time: "00:00:21",

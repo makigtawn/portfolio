@@ -55,7 +55,7 @@ export const AdminMessages = () => {
     <div className="space-y-6">
       <div className="flex items-center justify-between flex-wrap gap-4">
         <div className="flex items-center gap-4">
-          <span className="font-mono text-[11px] text-primary border border-amber-dim px-2 py-0.5 rounded-sm tracking-[.2em]">
+          <span className="font-mono text-xs text-primary border border-amber-dim px-2 py-0.5 rounded-sm tracking-[.2em]">
             CH·02
           </span>
           <h1 className="font-serif text-2xl text-foreground tracking-wide">Open Channel</h1>
@@ -65,7 +65,7 @@ export const AdminMessages = () => {
             <button
               key={f}
               onClick={() => setFilter(f)}
-              className={`px-3 py-1.5 rounded-sm font-mono text-[10px] uppercase tracking-[.1em] transition-colors ${
+              className={`px-3 py-1.5 rounded-sm font-mono text-xs uppercase tracking-[.1em] transition-colors ${
                 filter === f
                   ? "bg-primary text-primary-foreground"
                   : "text-muted-foreground hover:text-primary"
@@ -79,7 +79,7 @@ export const AdminMessages = () => {
       {error && <p className="text-sm text-danger">{error}</p>}
 
       {loading ? (
-        <p className="font-mono text-[12px] text-muted-foreground">Loading...</p>
+        <p className="font-mono text-xs text-muted-foreground">Loading...</p>
       ) : (
         <div className="grid lg:grid-cols-2 gap-6 items-start">
           <MessageList messages={messages} selectedId={selected?._id} onSelect={handleSelect} />

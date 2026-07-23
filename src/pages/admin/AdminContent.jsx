@@ -36,14 +36,14 @@ export const AdminContent = () => {
 
   const header = (
     <div className="flex items-center gap-4">
-      <span className="font-mono text-[11px] text-primary border border-amber-dim px-2 py-0.5 rounded-sm tracking-[.2em]">
+      <span className="font-mono text-xs text-primary border border-amber-dim px-2 py-0.5 rounded-sm tracking-[.2em]">
         CH·03
       </span>
       <h1 className="font-serif text-2xl text-foreground tracking-wide">Content</h1>
     </div>
   );
 
-  if (loading) return <p className="font-mono text-[12px] text-muted-foreground">Loading...</p>;
+  if (loading) return <p className="font-mono text-xs text-muted-foreground">Loading...</p>;
 
   if (!content) {
     return (

@@ -6,7 +6,7 @@ const statusDot = {
 
 export const MessageList = ({ messages, selectedId, onSelect }) => {
   if (messages.length === 0) {
-    return <p className="font-mono text-[12px] text-muted-foreground p-4">No messages.</p>;
+    return <p className="font-mono text-xs text-muted-foreground p-4">No messages.</p>;
   }
 
   return (
@@ -26,7 +26,7 @@ export const MessageList = ({ messages, selectedId, onSelect }) => {
                 <span className={`truncate font-serif ${m.status === "unread" ? "text-foreground" : "text-muted-foreground"}`}>
                   {m.name}
                 </span>
-                <span className="font-mono text-[9px] uppercase tracking-[.1em] text-muted-foreground shrink-0">
+                <span className="font-mono text-xs uppercase tracking-[.1em] text-muted-foreground shrink-0">
                   {m.category}
                 </span>
               </span>

@@ -49,7 +49,7 @@ export const AdminProjects = () => {
     <div className="space-y-6">
       <div className="flex items-center justify-between gap-4">
         <div className="flex items-center gap-4">
-          <span className="font-mono text-[11px] text-primary border border-amber-dim px-2 py-0.5 rounded-sm tracking-[.2em]">
+          <span className="font-mono text-xs text-primary border border-amber-dim px-2 py-0.5 rounded-sm tracking-[.2em]">
             CH·01
           </span>
           <h1 className="font-serif text-2xl text-foreground tracking-wide">Broadcasts</h1>
@@ -74,7 +74,7 @@ export const AdminProjects = () => {
       )}
 
       {loading ? (
-        <p className="font-mono text-[12px] text-muted-foreground">Loading...</p>
+        <p className="font-mono text-xs text-muted-foreground">Loading...</p>
       ) : (
         <ProjectTable projects={projects} onEdit={setEditing} onDelete={handleDelete} />
       )}

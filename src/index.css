@@ -17,6 +17,16 @@
   --theme-surface: #1a1208;
   --theme-danger: #c03020;
   --theme-danger-fg: #f0e6d0;
+
+  /* Centralized font-size scale (rem = relative to html font-size below,
+     so changing that one value scales all text sitewide). */
+  --font-xs: 0.75rem;
+  --font-sm: 0.875rem;
+  --font-base: 1rem;
+  --font-lg: 1.125rem;
+  --font-xl: 1.25rem;
+  --font-2xl: 1.5rem;
+  --font-3xl: 1.875rem;
 }
 
 @theme {
@@ -59,11 +69,24 @@
   --font-mono: "Share Tech Mono", monospace;
   --font-serif: "Special Elite", serif;
   --font-sans: Inter, sans-serif;
+
+  /* Wire the font-size scale into Tailwind's text-* utilities
+     (text-xs, text-sm, text-base, text-lg, text-xl, text-2xl, text-3xl). */
+  --text-xs: var(--font-xs);
+  --text-sm: var(--font-sm);
+  --text-base: var(--font-base);
+  --text-lg: var(--font-lg);
+  --text-xl: var(--font-xl);
+  --text-2xl: var(--font-2xl);
+  --text-3xl: var(--font-3xl);
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* Change this one value to scale all text-xs..text-3xl sitewide,
+       since every --font-* size above is defined in rem. */
+    font-size: 16px;
   }
 
   button {

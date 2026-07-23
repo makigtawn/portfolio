@@ -36,7 +36,7 @@ export const Spectrum = () => {
       ref={sectionRef}
       className="max-w-4xl mx-auto px-8 py-24 relative z-10">
       <div className="flex items-center gap-4 mb-12">
-        <span className="font-mono text-[11px] lg:text-[12px] text-amber-radio border border-amber-dim px-2 py-0.5 rounded-sm tracking-[.2em]">
+        <span className="font-mono text-xs text-amber-radio border border-amber-dim px-2 py-0.5 rounded-sm tracking-[.2em]">
           CH·02
         </span>
         <h2 className="font-serif text-2xl lg:text-3xl text-text-radio tracking-wide">
@@ -49,7 +49,7 @@ export const Spectrum = () => {
         <div
           key={skill.label}
           className="grid grid-cols-[100px_1fr_36px] sm:grid-cols-[130px_1fr_36px] items-center gap-4 mb-5">
-          <span className="font-mono text-[11px] lg:text-[12px] tracking-[.08em] text-text-dim uppercase">
+          <span className="font-mono text-xs tracking-[.08em] text-text-dim uppercase">
             {skill.label}
           </span>
           <div className="h-1.5 bg-bg-radio-3 border border-border-radio rounded-full overflow-hidden">
@@ -61,7 +61,7 @@ export const Spectrum = () => {
               }}
             />
           </div>
-          <span className="font-mono text-[10px] lg:text-[11px] text-amber-radio text-right">
+          <span className="font-mono text-xs text-amber-radio text-right">
             {skill.pct}%
           </span>
         </div>

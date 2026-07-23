@@ -42,7 +42,7 @@ export const AdminLogin = () => {
     <div className="min-h-screen flex items-center justify-center px-6 font-mono">
       <div className="w-full max-w-sm bg-card border border-border rounded-sm p-8 space-y-6">
         <div className="space-y-2">
-          <p className="font-mono text-[11px] tracking-[.2em] text-amber-dim uppercase">
+          <p className="font-mono text-xs tracking-[.2em] text-amber-dim uppercase">
             MEKLIT · Admin Access
           </p>
           <h1 className="font-serif text-2xl text-foreground">Admin login</h1>
@@ -55,7 +55,7 @@ export const AdminLogin = () => {
           <div>
             <label
               htmlFor="email"
-              className="block font-mono text-[10px] uppercase tracking-[.15em] text-muted-foreground mb-2">
+              className="block font-mono text-xs uppercase tracking-[.15em] text-muted-foreground mb-2">
               Email
             </label>
             <input
@@ -72,7 +72,7 @@ export const AdminLogin = () => {
           <div>
             <label
               htmlFor="password"
-              className="block font-mono text-[10px] uppercase tracking-[.15em] text-muted-foreground mb-2">
+              className="block font-mono text-xs uppercase tracking-[.15em] text-muted-foreground mb-2">
               Password
             </label>
             <input
@@ -98,7 +98,7 @@ export const AdminLogin = () => {
 
         <div className="flex items-center gap-3">
           <div className="h-px flex-1 bg-border" />
-          <span className="font-mono text-[10px] uppercase tracking-[.1em] text-muted-foreground">or</span>
+          <span className="font-mono text-xs uppercase tracking-[.1em] text-muted-foreground">or</span>
           <div className="h-px flex-1 bg-border" />
         </div>
 
