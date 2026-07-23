@@ -2,7 +2,9 @@ import { useState } from "react";
 import { Button } from "@/components/Button";
 
 const inputClasses =
-  "w-full px-4 py-2 bg-surface border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all";
+  "w-full px-4 py-2 bg-secondary border border-border text-foreground font-mono focus:border-primary focus:ring-2 focus:ring-[rgba(212,160,48,.15)] outline-none transition-all";
+
+const labelClasses = "block font-mono text-[10px] uppercase tracking-[.15em] text-muted-foreground mb-2";
 
 export const HeroContentForm = ({ hero, onSubmit, submitting }) => {
   const [form, setForm] = useState(hero);
@@ -15,35 +17,25 @@ export const HeroContentForm = ({ hero, onSubmit, submitting }) => {
         e.preventDefault();
         onSubmit(form);
       }}
-      className="glass p-6 space-y-4">
-      <h2 className="text-lg font-semibold">Hero</h2>
+      className="bg-card border border-border rounded-sm p-6 pt-8 space-y-4 relative">
+      <span className="absolute -top-[9px] left-6 bg-card px-2 font-mono text-[9px] tracking-[.18em] text-primary">
+        HERO
+      </span>
 
-      <div className="grid sm:grid-cols-2 gap-4">
-        <div>
-          <label className="block text-sm font-medium mb-2">Greeting</label>
-          <input value={form.greeting} onChange={update("greeting")} className={inputClasses} />
-        </div>
-        <div>
-          <label className="block text-sm font-medium mb-2">Name</label>
-          <input value={form.name} onChange={update("name")} className={inputClasses} />
-        </div>
-      </div>
-
-      <div className="grid sm:grid-cols-2 gap-4">
-        <div>
-          <label className="block text-sm font-medium mb-2">Title</label>
-          <input value={form.title} onChange={update("title")} className={inputClasses} />
-        </div>
-        <div>
-          <label className="block text-sm font-medium mb-2">Resume URL</label>
-          <input value={form.resumeUrl} onChange={update("resumeUrl")} className={inputClasses} />
-        </div>
+      <div>
+        <label className={labelClasses}>Station name</label>
+        <input value={form.name} onChange={update("name")} className={inputClasses} />
       </div>
 
       <div>
-        <label className="block text-sm font-medium mb-2">Tagline</label>
+        <label className={labelClasses}>Eyebrow line</label>
+        <input value={form.title} onChange={update("title")} className={inputClasses} />
+      </div>
+
+      <div>
+        <label className={labelClasses}>Tagline</label>
         <textarea
-          rows={3}
+          rows={2}
           value={form.tagline}
           onChange={update("tagline")}
           className={`${inputClasses} resize-none`}

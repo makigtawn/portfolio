@@ -4,19 +4,30 @@ import { StatCard } from "@/components/admin/StatCard";
 
 export const AdminDashboard = () => {
   const [stats, setStats] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
   useEffect(() => {
     apiGet("/api/dashboard/stats")
       .then(setStats)
-      .catch((err) => setError(err.message));
+      .catch((err) => setError(err.message))
+      .finally(() => setLoading(false));
   }, []);
 
   return (
     <div className="space-y-6">
-      <h1 className="text-2xl font-bold">Dashboard</h1>
+      <div className="flex items-center gap-4">
+        <span className="font-mono text-[11px] text-primary border border-amber-dim px-2 py-0.5 rounded-sm tracking-[.2em]">
+          CH·00
+        </span>
+        <h1 className="font-serif text-2xl text-foreground tracking-wide">Overview</h1>
+        <div className="flex-1 h-px bg-gradient-to-r from-border to-transparent" />
+      </div>
 
-      {error && <p className="text-sm text-red-500">{error}</p>}
+      {loading && (
+        <p className="font-mono text-[12px] text-muted-foreground">Loading...</p>
+      )}
+      {error && <p className="text-sm text-danger">{error}</p>}
 
       {stats && (
         <div className="grid sm:grid-cols-3 gap-4">

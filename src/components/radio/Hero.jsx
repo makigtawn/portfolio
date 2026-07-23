@@ -1,9 +1,18 @@
 import { useEffect, useState } from "react";
+import { useSiteContent } from "@/hooks/useSiteContent";
 import { VUMeter } from "./VUMeter";
 
 const ticks = [88, 92, 96, 100, 104, 108];
 
+const fallback = {
+  name: "MEKLIT",
+  title: "Shortwave Broadcast · Fullstack Developer",
+  tagline: "Transmitting code from the unknown · Est. 2019",
+};
+
 export const Hero = () => {
+  const { content } = useSiteContent();
+  const hero = content?.hero?.name ? content.hero : fallback;
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
@@ -21,17 +30,17 @@ export const Hero = () => {
       </div>
 
       <p className="font-mono text-[11px] tracking-[.3em] text-text-dim uppercase mb-5">
-        Shortwave Broadcast · Fullstack Developer
+        {hero.title}
       </p>
 
       <h1
         className="font-serif text-[clamp(4rem,12vw,9rem)] text-amber-radio leading-none mb-3 tracking-[.05em]"
         style={{ textShadow: "0 0 60px rgba(212,160,48,.15)" }}>
-        MEKLIT
+        {hero.name}
       </h1>
 
       <p className="font-mono text-[clamp(11px,1.8vw,14px)] text-text-dim tracking-[.12em] mb-12">
-        Transmitting code from the unknown · Est. 2019
+        {hero.tagline}
       </p>
 
       <div className="w-[320px] h-[80px] relative mb-6">

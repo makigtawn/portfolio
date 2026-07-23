@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { useSiteContent } from "@/hooks/useSiteContent";
 
-const FALLBACK_SKILLS = [
+const skills = [
   { label: "Frontend", pct: 92 },
   { label: "Backend", pct: 88 },
   { label: "Databases", pct: 80 },
@@ -11,20 +10,9 @@ const FALLBACK_SKILLS = [
   { label: "Testing", pct: 65 },
 ];
 
-function pctFromName(name) {
-  let hash = 0;
-  for (let i = 0; i < name.length; i++) hash = (hash * 31 + name.charCodeAt(i)) >>> 0;
-  return 65 + (hash % 31);
-}
-
 export const Spectrum = () => {
-  const { content } = useSiteContent();
   const sectionRef = useRef(null);
   const [animated, setAnimated] = useState(false);
-
-  const skills = content?.skills?.length
-    ? content.skills.map((s) => ({ label: s.name, pct: pctFromName(s.name) }))
-    : FALLBACK_SKILLS;
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -43,12 +31,17 @@ export const Spectrum = () => {
   }, []);
 
   return (
-    <section id="spectrum" ref={sectionRef} className="max-w-4xl mx-auto px-8 py-24 relative z-10">
+    <section
+      id="spectrum"
+      ref={sectionRef}
+      className="max-w-4xl mx-auto px-8 py-24 relative z-10">
       <div className="flex items-center gap-4 mb-12">
         <span className="font-mono text-[11px] text-amber-radio border border-amber-dim px-2 py-0.5 rounded-sm tracking-[.2em]">
           CH·02
         </span>
-        <h2 className="font-serif text-2xl text-text-radio tracking-wide">Signal Spectrum</h2>
+        <h2 className="font-serif text-2xl text-text-radio tracking-wide">
+          Signal Spectrum
+        </h2>
         <div className="flex-1 h-px bg-gradient-to-r from-border-radio to-transparent" />
       </div>
 
@@ -68,7 +61,9 @@ export const Spectrum = () => {
               }}
             />
           </div>
-          <span className="font-mono text-[10px] text-amber-radio text-right">{skill.pct}%</span>
+          <span className="font-mono text-[10px] text-amber-radio text-right">
+            {skill.pct}%
+          </span>
         </div>
       ))}
     </section>

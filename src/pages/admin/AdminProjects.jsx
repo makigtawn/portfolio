@@ -47,8 +47,13 @@ export const AdminProjects = () => {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold">Projects</h1>
+      <div className="flex items-center justify-between gap-4">
+        <div className="flex items-center gap-4">
+          <span className="font-mono text-[11px] text-primary border border-amber-dim px-2 py-0.5 rounded-sm tracking-[.2em]">
+            CH·01
+          </span>
+          <h1 className="font-serif text-2xl text-foreground tracking-wide">Broadcasts</h1>
+        </div>
         {!editing && (
           <Button size="sm" to="/admin/projects/new">
             New project
@@ -56,7 +61,7 @@ export const AdminProjects = () => {
         )}
       </div>
 
-      {error && <p className="text-sm text-red-500">{error}</p>}
+      {error && <p className="text-sm text-danger">{error}</p>}
 
       {editing && (
         <ProjectForm
@@ -69,7 +74,7 @@ export const AdminProjects = () => {
       )}
 
       {loading ? (
-        <p className="text-muted-foreground">Loading...</p>
+        <p className="font-mono text-[12px] text-muted-foreground">Loading...</p>
       ) : (
         <ProjectTable projects={projects} onEdit={setEditing} onDelete={handleDelete} />
       )}

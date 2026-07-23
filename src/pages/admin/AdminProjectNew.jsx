@@ -23,8 +23,13 @@ export const AdminProjectNew = () => {
 
   return (
     <div className="space-y-6 max-w-2xl">
-      <h1 className="text-2xl font-bold">New project</h1>
-      {error && <p className="text-sm text-red-500">{error}</p>}
+      <div className="flex items-center gap-4">
+        <span className="font-mono text-[11px] text-primary border border-amber-dim px-2 py-0.5 rounded-sm tracking-[.2em]">
+          CH·01
+        </span>
+        <h1 className="font-serif text-2xl text-foreground tracking-wide">New broadcast</h1>
+      </div>
+      {error && <p className="text-sm text-danger">{error}</p>}
       <ProjectForm
         submitting={submitting}
         onCancel={() => navigate("/admin/projects")}

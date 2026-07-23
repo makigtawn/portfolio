@@ -30,7 +30,9 @@ function toFormState(project) {
 }
 
 const inputClasses =
-  "w-full px-4 py-2 bg-surface border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all";
+  "w-full px-4 py-2 bg-secondary border border-border text-foreground font-mono focus:border-primary focus:ring-2 focus:ring-[rgba(212,160,48,.15)] outline-none transition-all";
+
+const labelClasses = "block font-mono text-[10px] uppercase tracking-[.15em] text-muted-foreground mb-2";
 
 export const ProjectForm = ({ project, onSubmit, onCancel, submitting }) => {
   const [form, setForm] = useState(() => toFormState(project));
@@ -73,16 +75,16 @@ export const ProjectForm = ({ project, onSubmit, onCancel, submitting }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="glass p-6 space-y-4">
-      <h2 className="text-lg font-semibold">{project ? "Edit project" : "New project"}</h2>
+    <form onSubmit={handleSubmit} className="bg-card border border-border rounded-sm p-6 space-y-4">
+      <h2 className="font-serif text-lg text-foreground">{project ? "Edit project" : "New project"}</h2>
 
       <div>
-        <label className="block text-sm font-medium mb-2">Title</label>
+        <label className={labelClasses}>Title</label>
         <input required value={form.title} onChange={update("title")} className={inputClasses} />
       </div>
 
       <div>
-        <label className="block text-sm font-medium mb-2">Description</label>
+        <label className={labelClasses}>Description</label>
         <textarea
           required
           rows={3}
@@ -93,7 +95,7 @@ export const ProjectForm = ({ project, onSubmit, onCancel, submitting }) => {
       </div>
 
       <div>
-        <label className="block text-sm font-medium mb-2">Image</label>
+        <label className={labelClasses}>Image</label>
         <div className="flex items-center gap-3">
           <input
             value={form.image}
@@ -110,40 +112,40 @@ export const ProjectForm = ({ project, onSubmit, onCancel, submitting }) => {
           className="mt-2 text-sm text-muted-foreground"
         />
         {uploading && <p className="text-xs text-muted-foreground mt-1">Uploading...</p>}
-        {uploadError && <p className="text-xs text-red-500 mt-1">{uploadError}</p>}
+        {uploadError && <p className="text-xs text-danger mt-1">{uploadError}</p>}
         {form.image && (
-          <img src={form.image} alt="Preview" className="mt-2 h-24 rounded-lg object-cover" />
+          <img src={form.image} alt="Preview" className="mt-2 h-24 rounded-sm object-cover" />
         )}
       </div>
 
       <div className="grid sm:grid-cols-2 gap-4">
         <div>
-          <label className="block text-sm font-medium mb-2">Live link</label>
+          <label className={labelClasses}>Live link</label>
           <input value={form.link} onChange={update("link")} className={inputClasses} />
         </div>
         <div>
-          <label className="block text-sm font-medium mb-2">GitHub link</label>
+          <label className={labelClasses}>GitHub link</label>
           <input value={form.github} onChange={update("github")} className={inputClasses} />
         </div>
       </div>
 
       <div className="grid sm:grid-cols-2 gap-4">
         <div>
-          <label className="block text-sm font-medium mb-2">Category</label>
+          <label className={labelClasses}>Category</label>
           <input value={form.category} onChange={update("category")} className={inputClasses} />
         </div>
         <div>
-          <label className="block text-sm font-medium mb-2">Tags (comma separated)</label>
+          <label className={labelClasses}>Tags (comma separated)</label>
           <input value={form.tags} onChange={update("tags")} className={inputClasses} />
         </div>
       </div>
 
       <div>
-        <label className="block text-sm font-medium mb-2">Tech stack (comma separated)</label>
+        <label className={labelClasses}>Tech stack (comma separated)</label>
         <input value={form.techStack} onChange={update("techStack")} className={inputClasses} />
       </div>
 
-      <label className="flex items-center gap-2 text-sm">
+      <label className="flex items-center gap-2 font-mono text-xs uppercase tracking-[.1em] text-muted-foreground">
         <input type="checkbox" checked={form.featured} onChange={update("featured")} />
         Featured
       </label>

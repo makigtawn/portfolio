@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 
-const skillSchema = new mongoose.Schema(
+const logEntrySchema = new mongoose.Schema(
   {
-    name: { type: String, required: true },
-    iconKey: { type: String, required: true },
+    time: { type: String, required: true },
+    text: { type: String, required: true },
   },
   { _id: false },
 );
@@ -19,8 +19,8 @@ const siteContentSchema = new mongoose.Schema({
   about: {
     heading: { type: String, default: "" },
     bodyText: { type: String, default: "" },
+    logs: { type: [logEntrySchema], default: [] },
   },
-  skills: { type: [skillSchema], default: [] },
 });
 
 export const SiteContent = mongoose.model("SiteContent", siteContentSchema);

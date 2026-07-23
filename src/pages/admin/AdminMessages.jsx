@@ -54,16 +54,21 @@ export const AdminMessages = () => {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between flex-wrap gap-4">
-        <h1 className="text-2xl font-bold">Messages</h1>
+        <div className="flex items-center gap-4">
+          <span className="font-mono text-[11px] text-primary border border-amber-dim px-2 py-0.5 rounded-sm tracking-[.2em]">
+            CH·02
+          </span>
+          <h1 className="font-serif text-2xl text-foreground tracking-wide">Open Channel</h1>
+        </div>
         <div className="flex gap-1">
           {filters.map((f) => (
             <button
               key={f}
               onClick={() => setFilter(f)}
-              className={`px-3 py-1.5 rounded-full text-sm capitalize transition-colors ${
+              className={`px-3 py-1.5 rounded-sm font-mono text-[10px] uppercase tracking-[.1em] transition-colors ${
                 filter === f
                   ? "bg-primary text-primary-foreground"
-                  : "text-muted-foreground hover:bg-surface"
+                  : "text-muted-foreground hover:text-primary"
               }`}>
               {f}
             </button>
@@ -71,10 +76,10 @@ export const AdminMessages = () => {
         </div>
       </div>
 
-      {error && <p className="text-sm text-red-500">{error}</p>}
+      {error && <p className="text-sm text-danger">{error}</p>}
 
       {loading ? (
-        <p className="text-muted-foreground">Loading...</p>
+        <p className="font-mono text-[12px] text-muted-foreground">Loading...</p>
       ) : (
         <div className="grid lg:grid-cols-2 gap-6 items-start">
           <MessageList messages={messages} selectedId={selected?._id} onSelect={handleSelect} />

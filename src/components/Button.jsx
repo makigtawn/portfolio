@@ -9,12 +9,12 @@ export const Button = ({
   to,
   ...props
 }) => {
-  const baseClasses = "inline-flex items-center justify-center font-medium transition-colors px-6 py-3 border-2 disabled:opacity-50 disabled:pointer-events-none";
+  const baseClasses = "inline-flex items-center justify-center font-mono uppercase tracking-[.12em] transition-colors px-6 py-3 border disabled:opacity-50 disabled:pointer-events-none";
 
   const variantClasses = {
-    primary: "border-black bg-black text-white hover:bg-white hover:text-black",
-    destructive: "border-danger bg-danger text-danger-foreground hover:bg-transparent hover:text-danger",
-    ghost: "border-border bg-transparent text-foreground hover:bg-surface",
+    primary: "border-primary bg-primary text-primary-foreground hover:bg-transparent hover:text-primary",
+    destructive: "border-danger bg-transparent text-danger hover:bg-danger hover:text-danger-foreground",
+    ghost: "border-border bg-transparent text-foreground hover:border-amber-dim hover:text-primary",
   };
 
   const sizeClasses = {

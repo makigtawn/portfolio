@@ -3,7 +3,6 @@ import { apiGet, apiPut } from "@/lib/api";
 import { invalidateSiteContent } from "@/hooks/useSiteContent";
 import { HeroContentForm } from "@/components/admin/HeroContentForm";
 import { AboutContentForm } from "@/components/admin/AboutContentForm";
-import { SkillsContentForm } from "@/components/admin/SkillsContentForm";
 
 export const AdminContent = () => {
   const [content, setContent] = useState(null);
@@ -35,14 +34,32 @@ export const AdminContent = () => {
     }
   };
 
-  if (loading) return <p className="text-muted-foreground">Loading...</p>;
+  const header = (
+    <div className="flex items-center gap-4">
+      <span className="font-mono text-[11px] text-primary border border-amber-dim px-2 py-0.5 rounded-sm tracking-[.2em]">
+        CH·03
+      </span>
+      <h1 className="font-serif text-2xl text-foreground tracking-wide">Content</h1>
+    </div>
+  );
+
+  if (loading) return <p className="font-mono text-[12px] text-muted-foreground">Loading...</p>;
+
+  if (!content) {
+    return (
+      <div className="space-y-6 max-w-2xl">
+        {header}
+        <p className="text-sm text-danger">{error}</p>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-6 max-w-2xl">
-      <h1 className="text-2xl font-bold">Content</h1>
+      {header}
 
-      {error && <p className="text-sm text-red-500">{error}</p>}
-      {saved && <p className="text-sm text-green-600">{saved} saved.</p>}
+      {error && <p className="text-sm text-danger">{error}</p>}
+      {saved && <p className="text-sm text-signal-green">{saved} saved.</p>}
 
       <HeroContentForm
         hero={content.hero}
@@ -54,11 +71,7 @@ export const AdminContent = () => {
         submitting={submitting}
         onSubmit={(form) => save("about", form, "About")}
       />
-      <SkillsContentForm
-        skills={content.skills}
-        submitting={submitting}
-        onSubmit={(skills) => save("skills", { skills }, "Skills")}
-      />
+      
     </div>
   );
 };

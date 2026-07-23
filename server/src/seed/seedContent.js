@@ -1,66 +1,40 @@
 import { SiteContent } from "../models/SiteContent.js";
 
-const skillKeys = [
-  "react",
-  "next",
-  "typescript",
-  "node",
-  "python",
-  "go",
-  "postgres",
-  "docker",
-  "java",
-  "cpp",
-  "javascript",
-  "html5",
-  "css3",
-  "redux",
-  "graphql",
-  "sass",
-  "vite",
-  "framerMotion",
-  "aws",
-  "firebase",
-];
-
-const skillNames = [
-  "React",
-  "Next.js",
-  "Typescript",
-  "Node.js",
-  "Python",
-  "Go",
-  "Postgres",
-  "Docker",
-  "Java",
-  "C++",
-  "JavaScript",
-  "HTML5",
-  "CSS3",
-  "Redux",
-  "GraphQL",
-  "Sass",
-  "Vite",
-  "Framer Motion",
-  "AWS",
-  "Firebase",
-];
-
 const content = {
   hero: {
     greeting: "$ whoami",
-    name: "Meklit Girmaw",
-    title: "Frontend Developer",
-    tagline:
-      "I build clean, thoughtful interfaces with a focus on detail, strict type structural restraint, and minimal footprint.",
+    name: "MEKLIT",
+    title: "Shortwave Broadcast · Fullstack Developer",
+    tagline: "Transmitting code from the unknown · Est. 2019",
     resumeUrl: "",
   },
   about: {
     heading: "Building modern web apps\nwith clean architecture.",
     bodyText:
       "I'm a Full Stack Developer who enjoys building simple, useful, and user-friendly web applications. I like working with teams, solving real problems, and learning new technologies. My goal is to create products that help people while growing my skills and building a successful career.",
+    logs: [
+      {
+        time: "00:00:01",
+        text: "Station initialized. MEKLIT is a fullstack developer between frontend precision and backend depth.",
+      },
+      {
+        time: "00:00:04",
+        text: "Began transmitting in 2019. Started with static. Got clearer every year.",
+      },
+      {
+        time: "00:00:09",
+        text: "Works best in hard problems — systems needing rebuilding, products needing to ship, codebases people are afraid to touch.",
+      },
+      {
+        time: "00:00:14",
+        text: "Believes good code is invisible — it just works, quietly, like a signal always there.",
+      },
+      {
+        time: "00:00:21",
+        text: "Currently open to new transmissions. If your project needs a signal, tune in.",
+      },
+    ],
   },
-  skills: skillNames.map((name, i) => ({ name, iconKey: skillKeys[i] })),
 };
 
 export async function seedContent() {

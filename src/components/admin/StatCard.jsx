@@ -1,8 +1,10 @@
 export const StatCard = ({ label, value }) => {
   return (
-    <div className="glass p-6">
-      <p className="text-sm text-muted-foreground">{label}</p>
-      <p className="text-3xl font-bold mt-1">{value}</p>
+    <div className="bg-card border border-border rounded-sm p-6">
+      <p className="font-serif text-2xl text-highlight">{value}</p>
+      <p className="font-mono text-[10px] uppercase tracking-[.15em] text-muted-foreground mt-1">
+        {label}
+      </p>
     </div>
   );
 };

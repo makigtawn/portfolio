@@ -2,47 +2,73 @@ import { useState } from "react";
 import { Button } from "@/components/Button";
 
 const inputClasses =
-  "w-full px-4 py-2 bg-surface border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all";
+  "w-full px-4 py-2 bg-secondary border border-border text-foreground font-mono focus:border-primary focus:ring-2 focus:ring-[rgba(212,160,48,.15)] outline-none transition-all";
+
+const labelClasses = "block font-mono text-[10px] uppercase tracking-[.15em] text-muted-foreground mb-2";
 
 export const AboutContentForm = ({ about, onSubmit, submitting }) => {
-  const [form, setForm] = useState(about);
+  const [rows, setRows] = useState(about.logs?.length ? about.logs : [{ time: "", text: "" }]);
 
-  const update = (field) => (e) => setForm((f) => ({ ...f, [field]: e.target.value }));
+  const updateRow = (i, field) => (e) => {
+    const value = e.target.value;
+    setRows((prev) => prev.map((r, idx) => (idx === i ? { ...r, [field]: value } : r)));
+  };
+
+  const removeRow = (i) => setRows((prev) => prev.filter((_, idx) => idx !== i));
+  const addRow = () => setRows((prev) => [...prev, { time: "", text: "" }]);
 
   return (
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        onSubmit(form);
+        onSubmit({ logs: rows });
       }}
-      className="glass p-6 space-y-4">
-      <h2 className="text-lg font-semibold">About</h2>
+      className="bg-card border border-border rounded-sm p-6 pt-8 space-y-4 relative">
+      <span className="absolute -top-[9px] left-6 bg-card px-2 font-mono text-[9px] tracking-[.18em] text-primary">
+        ABOUT · TRANSMISSION LOG
+      </span>
 
-      <div>
-        <label className="block text-sm font-medium mb-2">
-          Heading (use a new line for a line break)
-        </label>
-        <textarea
-          rows={2}
-          value={form.heading}
-          onChange={update("heading")}
-          className={`${inputClasses} resize-none`}
-        />
+      <div className="space-y-3">
+        {rows.map((row, i) => (
+          <div key={i} className="grid grid-cols-[90px_1fr_auto] gap-2 items-start">
+            <div>
+              <label className={labelClasses}>Time</label>
+              <input
+                value={row.time}
+                onChange={updateRow(i, "time")}
+                placeholder="00:00:01"
+                className={inputClasses}
+              />
+            </div>
+            <div>
+              <label className={labelClasses}>Entry</label>
+              <textarea
+                rows={2}
+                value={row.text}
+                onChange={updateRow(i, "text")}
+                className={`${inputClasses} resize-none`}
+              />
+            </div>
+            <Button
+              type="button"
+              size="sm"
+              variant="destructive"
+              className="mt-6"
+              onClick={() => removeRow(i)}>
+              Remove
+            </Button>
+          </div>
+        ))}
       </div>
 
-      <div>
-        <label className="block text-sm font-medium mb-2">Body text</label>
-        <textarea
-          rows={5}
-          value={form.bodyText}
-          onChange={update("bodyText")}
-          className={`${inputClasses} resize-none`}
-        />
+      <div className="flex gap-3">
+        <Button type="button" size="sm" variant="ghost" onClick={addRow}>
+          Add entry
+        </Button>
+        <Button type="submit" size="sm" disabled={submitting}>
+          {submitting ? "Saving..." : "Save about"}
+        </Button>
       </div>
-
-      <Button type="submit" size="sm" disabled={submitting}>
-        {submitting ? "Saving..." : "Save about"}
-      </Button>
     </form>
   );
 };

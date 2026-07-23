@@ -3,29 +3,29 @@ import { Button } from "@/components/Button";
 export const MessageDetail = ({ message, onStatusChange, onDelete }) => {
   if (!message) {
     return (
-      <div className="glass p-8 text-center text-muted-foreground">
+      <div className="bg-card border border-border rounded-sm p-8 text-center font-mono text-[12px] text-muted-foreground">
         Select a message to view it.
       </div>
     );
   }
 
   return (
-    <div className="glass p-6 space-y-4">
+    <div className="bg-card border border-border rounded-sm p-6 space-y-4">
       <div className="flex items-start justify-between gap-4">
         <div>
-          <h2 className="text-lg font-semibold">{message.name}</h2>
-          <a href={`mailto:${message.email}`} className="text-sm text-primary hover:underline">
+          <h2 className="font-serif text-lg text-foreground">{message.name}</h2>
+          <a href={`mailto:${message.email}`} className="text-sm text-primary hover:text-highlight transition-colors">
             {message.email}
           </a>
         </div>
-        <span className="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">
+        <span className="font-mono text-[9px] uppercase tracking-[.1em] text-muted-foreground border border-border rounded-sm px-2 py-1">
           {message.category}
         </span>
       </div>
 
       <p className="whitespace-pre-wrap text-sm leading-relaxed">{message.message}</p>
 
-      <p className="text-xs text-muted-foreground">
+      <p className="font-mono text-[10px] text-muted-foreground">
         {new Date(message.createdAt).toLocaleString()}
       </p>
 
