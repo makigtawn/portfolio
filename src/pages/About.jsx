@@ -1,6 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
-import SkillSection from "../components/SkillSection";
 import { useSiteContent } from "@/hooks/useSiteContent";
 
 const fadeUp = {
@@ -55,7 +54,6 @@ export const About = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             transition={{ delay: 0.15 }}>
-            <SkillSection />
           </motion.div>
         </div>
       </div>

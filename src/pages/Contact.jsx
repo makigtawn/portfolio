@@ -43,14 +43,15 @@ export const Contact = () => {
           contact me
         </h2>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+        <div className="gap-12 max-w-xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="glass p-8 md:p-20">
-            <form className="space-y-2" onSubmit={handleSubmit}>
+            className="glass p-8 rounded md:p-20"
+            >
+            <form className="space-y-2 " onSubmit={handleSubmit}>
               <div>
                 <label
                   htmlFor="name"
@@ -67,7 +68,7 @@ export const Contact = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, name: e.target.value })
                   }
-                  className="w-full px-4 py-1 bg-surface border border-border focus:border-black focus:ring-1 focus:ring-black outline-none transition-all"
+                  className="w-full rounded px-4 py-1 bg-surface border border-border focus:border-black focus:ring-1 focus:ring-black outline-none transition-all"
                 />
               </div>
 
@@ -82,12 +83,12 @@ export const Contact = () => {
                   name="email"
                   type="email"
                   required
-                  placeholder="your@email.com"
+                  placeholder="example@gmail.com"
                   value={formData.email}
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
                   }
-                  className="w-full px-4 py-1 bg-surface border border-border focus:border-black focus:ring-1 focus:ring-black outline-none transition-all"
+                  className="w-full rounded px-4 py-1 bg-surface border border-border focus:border-black focus:ring-1 focus:ring-black outline-none transition-all"
                 />
               </div>
 
@@ -104,9 +105,9 @@ export const Contact = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, category: e.target.value })
                   }
-                  className="w-full px-4 py-1 bg-surface border border-border focus:border-black focus:ring-1 focus:ring-black outline-none transition-all">
+                  className="w-full rounded px-4 py-1 bg-surface border border-border focus:border-black focus:ring-1 focus:ring-black outline-none transition-all">
                   {categories.map((c) => (
-                    <option key={c} value={c}>
+                    <option key={c}  value={c}>
                       {c}
                     </option>
                   ))}
@@ -129,7 +130,7 @@ export const Contact = () => {
                     setFormData({ ...formData, message: e.target.value })
                   }
                   placeholder="Your message..."
-                  className="w-full px-4 py-1 bg-surface  border border-border focus:border-black focus:ring-1 focus:ring-black outline-none transition-all resize-none"
+                  className="w-full rounded px-4 py-1 bg-surface  border border-border focus:border-black focus:ring-1 focus:ring-black outline-none transition-all resize-none"
                 />
               </div>
 

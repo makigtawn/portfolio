@@ -6,7 +6,7 @@ import { useSiteContent } from "@/hooks/useSiteContent";
 const fallback = {
   greeting: "$ whoami",
   name: "Meklit Girmaw",
-  title: "Frontend Developer",
+  title: "Full-stack Developer",
   tagline:
     "I build clean, thoughtful interfaces with a focus on detail, strict type structural restraint, and minimal footprint.",
   resumeUrl: "",
@@ -83,16 +83,19 @@ function Hero() {
             <motion.div
               variants={itemVariants}
               className="flex items-center gap-6 lg:p-5">
-              <Link
-                to="/contact"
-                className="px-6 py-3 border-2 border-black bg-black text-white dark:text-black dark:bg-white hover:bg-white hover:text-black transition-colors">
-                Get in touch
-              </Link>
               <a
                 href={hero.resumeUrl || "#"}
-                className="relative inline-block hover:text-zinc-500 after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:bg-zinc-500 after:transition-transform after:duration-300 hover:after:scale-x-100">
+                className="px-6 py-3 border-2 border-black bg-black text-white dark:text-black dark:bg-white hover:bg-white hover:text-black transition-colors">
+
                 View Resume
               </a>
+              <Link
+                to="/contact"
+                className="relative inline-block hover:text-zinc-500 after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:bg-zinc-500 after:transition-transform after:duration-300 hover:after:scale-x-100">
+
+                Get in touch
+              </Link>
+              
             </motion.div>
           </div>
 
