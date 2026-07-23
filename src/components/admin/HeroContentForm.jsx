@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/Button";
 
 const inputClasses =
-  "w-full px-4 py-2 bg-surface border border-border focus:border-black focus:ring-1 focus:ring-black outline-none transition-all";
+  "w-full px-4 py-2 bg-surface border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all";
 
 export const HeroContentForm = ({ hero, onSubmit, submitting }) => {
   const [form, setForm] = useState(hero);

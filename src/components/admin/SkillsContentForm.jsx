@@ -3,7 +3,7 @@ import { Button } from "@/components/Button";
 import { ICONS_BY_KEY } from "@/components/skillIcons";
 
 const inputClasses =
-  "w-full px-3 py-2 bg-surface border border-border focus:border-black focus:ring-1 focus:ring-black outline-none transition-all";
+  "w-full px-3 py-2 bg-surface border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all";
 
 const iconKeys = Object.keys(ICONS_BY_KEY);
 

@@ -1,59 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Share+Tech+Mono&family=Inter:wght@300;400;500&display=swap');
 @import "tailwindcss";
 
-/* 1. Tell Tailwind v4 to look for your data-theme="dark" attribute */
-@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
-
+/* Single amber/dark radio theme — shared by the public site and the admin panel. */
 :root {
-  --theme-bg: #0f1418;
-  --theme-fg: #f0f2f5;
-  --theme-card: #141a1f;
-  --theme-primary: #20b2a6;
-  --theme-primary-fg: #ffffff;
-  --theme-secondary: #1f2830;
-  --theme-secondary-fg: #20b2a6;
-  --theme-muted: #252e37;
-  --theme-muted-fg: #7a8491;
-  --theme-border: #242b32;
-  --theme-highlight: #f5a623;
-  --theme-surface: #1a2329;
-  --theme-danger: #ef4444;
-  --theme-danger-fg: #ffffff;
-}
-
-/* 2. Explicit Dark Theme Selector (Keeps variables stable when toggled) */
-[data-theme="dark"] {
-  --theme-bg: #0f1418;
-  --theme-fg: #f0f2f5;
-  --theme-card: #141a1f;
-  --theme-primary: #20b2a6;
-  --theme-primary-fg: #ffffff;
-  --theme-secondary: #1f2830;
-  --theme-secondary-fg: #20b2a6;
-  --theme-muted: #252e37;
-  --theme-muted-fg: #7a8491;
-  --theme-border: #242b32;
-  --theme-highlight: #f5a623;
-  --theme-surface: #1a2329;
-  --theme-danger: #ef4444;
-  --theme-danger-fg: #ffffff;
-}
-
-[data-theme="light"] {
-  --theme-bg: #f1f5f9;
-  --theme-fg: #060606;
-  --theme-card: #ffffff;
-  --theme-primary: #000000;
-  --theme-primary-fg: #ffffff;
-  --theme-secondary: #e2e8f0;
-  --theme-secondary-fg: #0f766e;
-  --theme-muted: #e8eef4;
-  --theme-muted-fg: #64748b;
-  --theme-border: #cbd5e1;
-  --theme-highlight: #d97706;
-  --theme-surface: #ffffff;
-  --theme-danger: #dc2626;
-  --theme-danger-fg: #ffffff;
+  --theme-bg: #0f0b07;
+  --theme-fg: #d8c898;
+  --theme-card: #1a1208;
+  --theme-primary: #d4a030;
+  --theme-primary-fg: #0f0b07;
+  --theme-secondary: #221a0e;
+  --theme-secondary-fg: #d4a030;
+  --theme-muted: #221a0e;
+  --theme-muted-fg: #806840;
+  --theme-border: #2a1e0a;
+  --theme-highlight: #f0c060;
+  --theme-surface: #1a1208;
+  --theme-danger: #c03020;
+  --theme-danger-fg: #f0e6d0;
 }
 
 @theme {

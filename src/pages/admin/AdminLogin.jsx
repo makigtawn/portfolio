@@ -60,7 +60,7 @@ export const AdminLogin = () => {
               autoFocus
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-2 bg-surface border border-border focus:border-black focus:ring-1 focus:ring-black outline-none transition-all"
+              className="w-full px-4 py-2 bg-surface border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
             />
           </div>
 
@@ -74,7 +74,7 @@ export const AdminLogin = () => {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-2 bg-surface border border-border focus:border-black focus:ring-1 focus:ring-black outline-none transition-all"
+              className="w-full px-4 py-2 bg-surface border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
             />
           </div>
 

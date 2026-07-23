@@ -16,7 +16,7 @@ export const Contact = () => {
           </span>
           <span className="font-serif text-lg text-text-radio">
             <a
-              href="mailto:hello@meklit.dev"
+              href="mailto:meklitgirmaw@gmail.com"
               className="text-amber-radio hover:text-amber-glow transition-colors">
               hello@meklit.dev
             </a>
