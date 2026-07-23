@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Share+Tech+Mono&family=Inter:wght@300;400;500&display=swap');
 @import "tailwindcss";
 
 /* 1. Tell Tailwind v4 to look for your data-theme="dark" attribute */
@@ -78,6 +79,23 @@
   --color-surface: var(--theme-surface);
   --color-danger: var(--theme-danger);
   --color-danger-foreground: var(--theme-danger-fg);
+
+  /* Radio station theme */
+  --color-bg-radio: #0f0b07;
+  --color-bg-radio-2: #1a1208;
+  --color-bg-radio-3: #221a0e;
+  --color-amber-radio: #d4a030;
+  --color-amber-dim: #8a6018;
+  --color-amber-glow: #f0c060;
+  --color-text-radio: #d8c898;
+  --color-text-dim: #806840;
+  --color-border-radio: #2a1e0a;
+  --color-signal-green: #408030;
+  --color-signal-red: #c03020;
+
+  --font-mono: "Share Tech Mono", monospace;
+  --font-serif: "Special Elite", serif;
+  --font-sans: Inter, sans-serif;
 }
 
 @layer base {
@@ -238,4 +256,20 @@
         color-mix(in srgb, var(--color-primary) 35%, transparent),
       0 0 80px color-mix(in srgb, var(--color-primary) 25%, transparent);
   }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.15; }
+  }
+  @keyframes bounce-slow {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(8px); }
+  }
+  @keyframes vu-dance {
+    from { height: var(--vu-min); opacity: 0.5; }
+    to   { height: var(--vu-max); opacity: 1; }
+  }
+  .animate-blink       { animation: blink 1.4s ease-in-out infinite; }
+  .animate-bounce-slow { animation: bounce-slow 2.5s ease-in-out infinite; }
+  .animate-vu          { animation: vu-dance var(--vu-dur) ease-in-out infinite alternate; }
 }

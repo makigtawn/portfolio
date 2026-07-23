@@ -1,10 +1,5 @@
-import { Routes, Route } from "react-router-dom";
-import { PublicLayout } from "./layout/PublicLayout";
-import { Home } from "./pages/Home";
-import { About } from "./pages/About";
-import { Projects } from "./pages/Projects";
-import { ProjectDetail } from "./pages/ProjectDetail";
-import { Contact } from "./pages/Contact";
+import { Routes, Route, Navigate } from "react-router-dom";
+import { RadioSite } from "./pages/RadioSite";
 import { NotFound } from "./pages/NotFound";
 import { AdminLogin } from "./pages/admin/AdminLogin";
 import { AdminDashboard } from "./pages/admin/AdminDashboard";
@@ -18,14 +13,10 @@ import { ProtectedRoute } from "./components/ProtectedRoute";
 function App() {
   return (
     <Routes>
-      <Route element={<PublicLayout />}>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/projects/:id" element={<ProjectDetail />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="*" element={<NotFound />} />
-      </Route>
+      <Route path="/" element={<RadioSite />} />
+      <Route path="/about" element={<Navigate to="/#log" replace />} />
+      <Route path="/projects" element={<Navigate to="/#broadcasts" replace />} />
+      <Route path="/contact" element={<Navigate to="/#contact" replace />} />
       <Route path="/admin/login" element={<AdminLogin />} />
       <Route element={<ProtectedRoute />}>
         <Route path="/admin" element={<AdminLayout />}>
@@ -36,6 +27,7 @@ function App() {
           <Route path="content" element={<AdminContent />} />
         </Route>
       </Route>
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }
