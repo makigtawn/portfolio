@@ -30,10 +30,10 @@ export const TransmissionLog = () => {
   return (
     <section id="log" className="max-w-4xl mx-auto px-8 py-24 relative z-10">
       <div className="flex items-center gap-4 mb-12">
-        <span className="font-mono text-[11px] text-amber-radio border border-amber-dim px-2 py-0.5 rounded-sm tracking-[.2em]">
+        <span className="font-mono text-[11px] lg:text-[12px] text-amber-radio border border-amber-dim px-2 py-0.5 rounded-sm tracking-[.2em]">
           CH·03
         </span>
-        <h2 className="font-serif text-2xl text-text-radio tracking-wide">About the Station</h2>
+        <h2 className="font-serif text-2xl lg:text-3xl text-text-radio tracking-wide">About the Station</h2>
         <div className="flex-1 h-px bg-gradient-to-r from-border-radio to-transparent" />
       </div>
 
@@ -45,7 +45,7 @@ export const TransmissionLog = () => {
         {logs.map((log, i) => (
           <div
             key={i}
-            className={`flex gap-4 text-[13px] leading-relaxed ${i === logs.length - 1 ? "" : "mb-4"}`}>
+            className={`flex gap-4 text-[13px] lg:text-[15px] leading-relaxed ${i === logs.length - 1 ? "" : "mb-4"}`}>
             <span className="font-mono text-[10px] text-amber-dim tracking-[.06em] min-w-[70px] pt-0.5">
               {log.time}
             </span>

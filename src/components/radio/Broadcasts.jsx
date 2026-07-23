@@ -26,10 +26,10 @@ export const Broadcasts = () => {
   return (
     <section id="broadcasts" className="max-w-4xl mx-auto px-8 py-24 relative z-10">
       <div className="flex items-center gap-4 mb-12">
-        <span className="font-mono text-[11px] text-amber-radio border border-amber-dim px-2 py-0.5 rounded-sm tracking-[.2em]">
+        <span className="font-mono text-[11px] lg:text-[12px] text-amber-radio border border-amber-dim px-2 py-0.5 rounded-sm tracking-[.2em]">
           CH·01
         </span>
-        <h2 className="font-serif text-2xl text-text-radio tracking-wide">Broadcasts</h2>
+        <h2 className="font-serif text-2xl lg:text-3xl text-text-radio tracking-wide">Broadcasts</h2>
         <div className="flex-1 h-px bg-gradient-to-r from-border-radio to-transparent" />
       </div>
 
@@ -54,15 +54,15 @@ export const Broadcasts = () => {
               <div className="absolute left-[-2rem] top-0 bottom-0 w-0.5 bg-amber-radio opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
 
               <div>
-                <p className="font-mono text-[13px] text-amber-radio tracking-[.06em]">{meta.freq}</p>
+                <p className="font-mono text-[13px] lg:text-[14px] text-amber-radio tracking-[.06em]">{meta.freq}</p>
                 <p className="font-mono text-[9px] text-text-dim mt-1 tracking-[.08em]">
                   {SIGNAL_ICON[meta.signal]} {meta.signal}
                 </p>
               </div>
 
               <div>
-                <h3 className="font-serif text-xl text-text-radio mb-1.5">{project.title}</h3>
-                <p className="text-[13px] text-text-dim leading-relaxed max-w-lg">
+                <h3 className="font-serif text-xl lg:text-2xl text-text-radio mb-1.5">{project.title}</h3>
+                <p className="text-[13px] lg:text-[15px] text-text-dim leading-relaxed max-w-lg">
                   {project.description}
                 </p>
                 {!!project.tags?.length && (

@@ -1,6 +1,12 @@
 import { useEffect, useMemo, useState } from "react";
 
-const COLORS = { 0: "#2a1e0a", 1: "#6a3e10", 2: "#d4a030", 3: "#f0c060", 4: "#fff4b0" };
+const COLORS = {
+  0: "#2a1e0a",
+  1: "#6a3e10",
+  2: "#d4a030",
+  3: "#f0c060",
+  4: "#fff4b0",
+};
 const DOW_LABELS = ["", "Mon", "", "Wed", "", "Fri", ""];
 const CELL_COL_WIDTH = 13; // 10px cell + 3px gap
 
@@ -8,9 +14,15 @@ function LoadingState() {
   return (
     <div className="flex items-center justify-center h-28 gap-2">
       <span className="w-1.5 h-1.5 bg-amber-dim rounded-full animate-pulse" />
-      <span className="w-1.5 h-1.5 bg-amber-dim rounded-full animate-pulse" style={{ animationDelay: "0.2s" }} />
-      <span className="w-1.5 h-1.5 bg-amber-dim rounded-full animate-pulse" style={{ animationDelay: "0.4s" }} />
-      <span className="font-mono text-[11px] text-text-dim ml-2">
+      <span
+        className="w-1.5 h-1.5 bg-amber-dim rounded-full animate-pulse"
+        style={{ animationDelay: "0.2s" }}
+      />
+      <span
+        className="w-1.5 h-1.5 bg-amber-dim rounded-full animate-pulse"
+        style={{ animationDelay: "0.4s" }}
+      />
+      <span className="font-mono text-[11px] lg:text-[12px] text-text-dim ml-2">
         Tuning into github.com/makigtawn
       </span>
     </div>
@@ -19,7 +31,7 @@ function LoadingState() {
 
 function ErrorState() {
   return (
-    <p className="font-mono text-[11px] text-text-dim text-center py-10">
+    <p className="font-mono text-[11px] lg:text-[12px] text-text-dim text-center py-10">
       Signal lost · Could not reach github.com/makigtawn
     </p>
   );
@@ -64,7 +76,9 @@ export const SignalActivity = () => {
     const labels = [];
     weeks.forEach((week, wi) => {
       const firstDay = week[0];
-      const month = new Date(firstDay.date).toLocaleString("default", { month: "short" });
+      const month = new Date(firstDay.date).toLocaleString("default", {
+        month: "short",
+      });
       const prev = wi > 0 ? new Date(weeks[wi - 1][0].date).getMonth() : -1;
       const curr = new Date(firstDay.date).getMonth();
       if (curr !== prev) labels.push({ label: month, weekIndex: wi });
@@ -87,10 +101,12 @@ export const SignalActivity = () => {
   return (
     <section id="github" className="max-w-4xl mx-auto px-8 py-24 relative z-10">
       <div className="flex items-center gap-4 mb-12">
-        <span className="font-mono text-[11px] text-amber-radio border border-amber-dim px-2 py-0.5 rounded-sm tracking-[.2em]">
+        <span className="font-mono text-[11px] lg:text-[12px] text-amber-radio border border-amber-dim px-2 py-0.5 rounded-sm tracking-[.2em]">
           CH·04
         </span>
-        <h2 className="font-serif text-2xl text-text-radio tracking-wide">Signal Activity</h2>
+        <h2 className="font-serif text-2xl lg:text-3xl text-text-radio tracking-wide">
+          Signal Activity
+        </h2>
         <div className="flex-1 h-px bg-gradient-to-r from-border-radio to-transparent" />
       </div>
 
@@ -108,7 +124,9 @@ export const SignalActivity = () => {
               <div className="flex gap-2 min-w-max">
                 <div className="flex flex-col mt-[18px]">
                   {DOW_LABELS.map((label, i) => (
-                    <span key={i} className="h-[10px] mb-[3px] font-mono text-[8px] text-text-dim leading-none">
+                    <span
+                      key={i}
+                      className="h-[10px] mb-[3px] font-mono text-[8px] text-text-dim leading-none">
                       {label}
                     </span>
                   ))}
@@ -150,14 +168,22 @@ export const SignalActivity = () => {
                 <span className="font-mono text-[9px] tracking-[.15em] uppercase text-amber-dim">
                   Total last year
                 </span>
-                <span className="font-serif text-lg text-amber-radio">{total} contributions</span>
+                <span className="font-serif text-lg lg:text-xl text-amber-radio">
+                  {total} contributions
+                </span>
               </div>
 
               <div className="flex flex-col gap-1">
                 <span className="font-mono text-[9px] tracking-[.15em] uppercase text-amber-dim">
                   Station
                 </span>
-                <span className="font-serif text-lg text-amber-radio">github.com/makigtawn</span>
+                <span className="font-serif text-lg lg:text-xl text-text-radio">
+                  <a
+                    href="https://github.com/makigtawn"
+                    className="text-amber-radio hover:text-amber-glow transition-colors">
+                    github.com/makigtawn
+                  </a>
+                </span>
               </div>
 
               <div className="flex flex-col gap-1">
@@ -166,13 +192,19 @@ export const SignalActivity = () => {
                 </span>
                 <div className="flex gap-1">
                   {[0, 1, 2, 3, 4].map((level) => (
-                    <div key={level} className="flex flex-col items-center gap-1">
+                    <div
+                      key={level}
+                      className="flex flex-col items-center gap-1">
                       <span
                         className="w-3 h-3 rounded-sm inline-block"
                         style={{ background: COLORS[level] }}
                       />
-                      {level === 0 && <span className="text-[8px] text-text-dim">None</span>}
-                      {level === 4 && <span className="text-[8px] text-text-dim">Max</span>}
+                      {level === 0 && (
+                        <span className="text-[8px] text-text-dim">None</span>
+                      )}
+                      {level === 4 && (
+                        <span className="text-[8px] text-text-dim">Max</span>
+                      )}
                     </div>
                   ))}
                 </div>

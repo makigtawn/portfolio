@@ -29,7 +29,7 @@ export const Hero = () => {
         <VUMeter />
       </div>
 
-      <p className="font-mono text-[11px] tracking-[.3em] text-text-dim uppercase mb-5">
+      <p className="font-mono text-[11px] lg:text-[13px] tracking-[.3em] text-text-dim uppercase mb-5">
         {hero.title}
       </p>
 
@@ -39,7 +39,7 @@ export const Hero = () => {
         {hero.name}
       </h1>
 
-      <p className="font-mono text-[clamp(11px,1.8vw,14px)] text-text-dim tracking-[.12em] mb-12">
+      <p className="font-mono text-[clamp(11px,1.8vw,16px)] text-text-dim tracking-[.12em] mb-12">
         {hero.tagline}
       </p>
 
@@ -62,14 +62,14 @@ export const Hero = () => {
       </div>
 
       <p
-        className="font-mono text-[22px] text-amber-glow tracking-[.1em] mb-10"
+        className="font-mono text-[22px] lg:text-[26px] text-amber-glow tracking-[.1em] mb-10"
         style={{ textShadow: "0 0 20px rgba(240,192,96,.4)" }}>
         {freq} MHz
       </p>
 
       <a
         href="#broadcasts"
-        className="animate-bounce-slow font-mono text-[10px] tracking-[.2em] text-text-dim uppercase flex items-center gap-2">
+        className="animate-bounce-slow font-mono text-[10px] lg:text-[11px] tracking-[.2em] text-text-dim uppercase flex items-center gap-2">
         ▼ Tune in below
       </a>
     </section>
