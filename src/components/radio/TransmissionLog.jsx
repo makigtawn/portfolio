@@ -7,7 +7,7 @@ const FALLBACK_LOGS = [
   },
   {
     time: "00:00:04",
-    text: "Began transmitting in 2019. Started with static. Got clearer every year.",
+    text: "Began transmitting in 2022. Started with static. Got clearer every year.",
   },
   {
     time: "00:00:09",
@@ -25,7 +25,9 @@ const FALLBACK_LOGS = [
 
 export const TransmissionLog = () => {
   const { content } = useSiteContent();
-  const logs = content?.about?.logs?.length ? content.about.logs : FALLBACK_LOGS;
+  const logs = content?.about?.logs?.length
+    ? content.about.logs
+    : FALLBACK_LOGS;
 
   return (
     <section id="log" className="max-w-4xl mx-auto px-8 py-24 relative z-10">
@@ -33,7 +35,9 @@ export const TransmissionLog = () => {
         <span className="font-mono text-[11px] lg:text-[12px] text-amber-radio border border-amber-dim px-2 py-0.5 rounded-sm tracking-[.2em]">
           CH·03
         </span>
-        <h2 className="font-serif text-2xl lg:text-3xl text-text-radio tracking-wide">About the Station</h2>
+        <h2 className="font-serif text-2xl lg:text-3xl text-text-radio tracking-wide">
+          About the Station
+        </h2>
         <div className="flex-1 h-px bg-gradient-to-r from-border-radio to-transparent" />
       </div>
 
@@ -46,7 +50,7 @@ export const TransmissionLog = () => {
           <div
             key={i}
             className={`flex gap-4 text-[13px] lg:text-[15px] leading-relaxed ${i === logs.length - 1 ? "" : "mb-4"}`}>
-            <span className="font-mono text-[10px] text-amber-dim tracking-[.06em] min-w-[70px] pt-0.5">
+            <span className="font-mono text-sm text-amber-dim tracking-[.06em] min-w-[70px] pt-0.5">
               {log.time}
             </span>
             <span className="text-text-dim">{log.text}</span>

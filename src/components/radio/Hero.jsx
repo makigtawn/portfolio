@@ -7,7 +7,7 @@ const ticks = [88, 92, 96, 100, 104, 108];
 const fallback = {
   name: "MEKLIT",
   title: "Shortwave Broadcast · Fullstack Developer",
-  tagline: "Transmitting code from the unknown · Est. 2019",
+  tagline: "Transmitting code from the unknown · Est. 2022",
 };
 
 export const Hero = () => {

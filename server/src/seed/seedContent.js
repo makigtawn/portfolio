@@ -5,7 +5,7 @@ const content = {
     greeting: "$ whoami",
     name: "MEKLIT",
     title: "Shortwave Broadcast · Fullstack Developer",
-    tagline: "Transmitting code from the unknown · Est. 2019",
+    tagline: "Transmitting code from the unknown · Est. 2022",
     resumeUrl: "",
   },
   about: {
@@ -19,7 +19,7 @@ const content = {
       },
       {
         time: "00:00:04",
-        text: "Began transmitting in 2019. Started with static. Got clearer every year.",
+        text: "Began transmitting in 2022. Started with static. Got clearer every year.",
       },
       {
         time: "00:00:09",

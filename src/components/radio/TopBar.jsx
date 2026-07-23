@@ -16,8 +16,8 @@ export const TopBar = () => {
         </span>
       </div>
 
-      <span className="hidden md:block font-mono text-text-dim text-[11px] lg:text-[12px] tracking-[.1em] mx-10">
-        96.4 MHz · EST. 2019 · SHORTWAVE BROADCAST
+      <span className="hidden md:block font-mono text-text-dim text-sm tracking-[.1em] mx-10">
+        96.4 MHz · EST. 2022 · SHORTWAVE BROADCAST
       </span>
 
       <div className="hidden md:flex gap-6 ml-auto">
@@ -25,7 +25,7 @@ export const TopBar = () => {
           <a
             key={link.href}
             href={link.href}
-            className="font-mono text-[11px] lg:text-[12px] tracking-[.1em] text-text-dim uppercase hover:text-amber-radio transition-colors">
+            className="font-mono text-sm tracking-[.1em] text-text-dim uppercase hover:text-amber-radio transition-colors">
             {link.label}
           </a>
         ))}
