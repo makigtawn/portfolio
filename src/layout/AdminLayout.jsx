@@ -107,7 +107,7 @@ export const AdminLayout = () => {
         </div>
       </aside>
 
-      <main className="relative z-10 flex-1 p-6 md:p-10">
+      <main className="relative z-10 flex-1 p-6 bg-[#806840] md:p-10">
         <Outlet />
       </main>
     </div>
