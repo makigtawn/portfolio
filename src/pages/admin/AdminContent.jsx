@@ -39,11 +39,16 @@ export const AdminContent = () => {
       <span className="font-mono text-xs text-primary border border-amber-dim px-2 py-0.5 rounded-sm tracking-[.2em]">
         CH·03
       </span>
-      <h1 className="font-serif text-2xl text-foreground tracking-wide">Content</h1>
+      <h1 className="font-serif text-2xl text-foreground tracking-wide">
+        Content
+      </h1>
     </div>
   );
 
-  if (loading) return <p className="font-mono text-xs text-muted-foreground">Loading...</p>;
+  if (loading)
+    return (
+      <p className="font-mono text-xs text-muted-foreground">Loading...</p>
+    );
 
   if (!content) {
     return (
@@ -71,7 +76,6 @@ export const AdminContent = () => {
         submitting={submitting}
         onSubmit={(form) => save("about", form, "About")}
       />
-      
     </div>
   );
 };

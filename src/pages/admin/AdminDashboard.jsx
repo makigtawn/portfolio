@@ -1,19 +1,20 @@
 import { useEffect, useState } from "react";
 import { apiGet } from "@/lib/api";
 import { StatCard } from "@/components/admin/StatCard";
+import { AnalyticsChart } from "@/components/admin/AnalyticsChart";
+import { useAnalytics } from "@/hooks/useAnalytics";
 
 export const AdminDashboard = () => {
   const [stats, setStats] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const analytics = useAnalytics();
 
   useEffect(() => {
-    const resposne1 = apiGet("/api/dashboard/stats")
+    apiGet("/api/dashboard/stats")
       .then(setStats)
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
-
-    console.log("respose: ", resposne1);
   }, []);
 
   return (
@@ -36,12 +37,24 @@ export const AdminDashboard = () => {
       {error && <p className="text-sm text-danger">{error}</p>}
 
       {stats && (
-        <div className="grid sm:grid-cols-3 gap-4">
+        <div className="grid sm:grid-cols-4 gap-4">
           <StatCard label="Projects" value={stats.projects} />
           <StatCard label="Messages" value={stats.messages.total} />
           <StatCard label="Unread messages" value={stats.messages.unread} />
+          <div className="bg-card border border-border rounded-sm p-6">
+            <p className="font-serif text-2xl text-signal-green flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-signal-green animate-blink" />
+              {analytics.visitorCount}
+            </p>
+            <p className="font-mono text-xs uppercase tracking-[.15em] text-muted-foreground mt-1">
+              Visitors online
+            </p>
+          </div>
         </div>
       )}
+
+      {analytics.error && <p className="text-sm text-danger">{analytics.error}</p>}
+      {!analytics.loading && <AnalyticsChart buckets={analytics.buckets} />}
     </div>
   );
 };

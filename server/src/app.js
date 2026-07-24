@@ -10,6 +10,7 @@ import contactRoutes from "./routes/contact.routes.js";
 import contentRoutes from "./routes/content.routes.js";
 import dashboardRoutes from "./routes/dashboard.routes.js";
 import uploadsRoutes from "./routes/uploads.routes.js";
+import analyticsRoutes from "./routes/analytics.routes.js";
 
 // Builds the Express app. Assumes Mongoose is already connected (both the
 // real bootstrap in index.js and tests in server/test/ call connectDB first).
@@ -48,6 +49,7 @@ export function createApp() {
   app.use("/api/content", contentRoutes);
   app.use("/api/dashboard", dashboardRoutes);
   app.use("/api/uploads", uploadsRoutes);
+  app.use("/api/analytics", analyticsRoutes);
 
   app.use(notFoundHandler);
   app.use(errorHandler);

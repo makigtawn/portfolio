@@ -7,8 +7,11 @@ import { TransmissionLog } from "@/components/radio/TransmissionLog";
 import { SignalActivity } from "@/components/radio/SignalActivity";
 import { Contact } from "@/components/radio/Contact";
 import { Footer } from "@/components/radio/Footer";
+import { useVisitorPresence } from "@/hooks/useVisitorPresence";
 
 export const RadioSite = () => {
+  useVisitorPresence();
+
   return (
     <div className="relative bg-bg-radio min-h-screen text-text-radio font-sans">
       <svg className="fixed inset-0 w-full h-full pointer-events-none z-0 opacity-[0.35]">

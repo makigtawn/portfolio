@@ -1,7 +1,9 @@
 import "dotenv/config";
+import { createServer } from "http";
 import { connectDB } from "./config/db.js";
 import { getAllowedOrigins } from "./config/origins.js";
 import { createApp } from "./app.js";
+import { initSocket } from "./socket/index.js";
 
 const { PORT = 5000, MONGODB_URI } = process.env;
 
@@ -15,7 +17,10 @@ if (!MONGODB_URI) {
 connectDB(MONGODB_URI)
   .then(() => {
     const app = createApp();
-    app.listen(PORT, () => {
+    const server = createServer(app);
+    initSocket(server, getAllowedOrigins());
+
+    server.listen(PORT, () => {
       console.log(`[server] listening on http://localhost:${PORT}`);
       console.log(`[server] allowed origins: ${getAllowedOrigins().join(", ")}`);
     });
