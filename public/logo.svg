@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="100" fill="#1e232a"/>
+  <!-- Orange M outline -->
+  <path d="M120 160 h70 v192 h-70 z M322 160 h70 v192 h-70 z M120 160 h272 v70 h-272 z" fill="#f3a012"/>
+  <!-- White V overlap -->
+  <path d="M190 160 L256 320 L322 160 h-60 L256 240 L210 160 Z" fill="#ffffff"/>
+</svg>
