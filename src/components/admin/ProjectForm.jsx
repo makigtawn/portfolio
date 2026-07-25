@@ -22,6 +22,30 @@ function toFormState(project) {
   };
 }
 
+function formatGithub(input) {
+  if (!input) return "";
+  const trimmed = input.trim();
+  if (!trimmed) return "";
+  if (trimmed.startsWith("http://") || trimmed.startsWith("https://")) {
+    return trimmed;
+  }
+  const cleanPath = trimmed.replace(/^github\.com\//i, "").replace(/^\/+|\/+$/g, "");
+  if (cleanPath.includes("/")) {
+    return `https://github.com/${cleanPath}`;
+  }
+  return `https://github.com/makigtawn/${cleanPath}`;
+}
+
+function formatLink(input) {
+  if (!input) return "";
+  const trimmed = input.trim();
+  if (!trimmed) return "";
+  if (trimmed.startsWith("http://") || trimmed.startsWith("https://")) {
+    return trimmed;
+  }
+  return `https://${trimmed}`;
+}
+
 const inputClasses =
   "w-full px-4 py-2 bg-secondary border border-border text-foreground font-mono focus:border-primary focus:ring-2 focus:ring-[rgba(212,160,48,.15)] outline-none transition-all";
 
@@ -39,6 +63,8 @@ export const ProjectForm = ({ project, onSubmit, onCancel, submitting }) => {
     e.preventDefault();
     onSubmit({
       ...form,
+      link: formatLink(form.link),
+      github: formatGithub(form.github),
       tags: form.tags
         .split(",")
         .map((t) => t.trim())
@@ -69,11 +95,21 @@ export const ProjectForm = ({ project, onSubmit, onCancel, submitting }) => {
       <div className="grid sm:grid-cols-2 gap-4">
         <div>
           <label className={labelClasses}>Live link</label>
-          <input value={form.link} onChange={update("link")} className={inputClasses} />
+          <input
+            value={form.link}
+            onChange={update("link")}
+            placeholder="e.g. myproject.com"
+            className={inputClasses}
+          />
         </div>
         <div>
-          <label className={labelClasses}>GitHub link</label>
-          <input value={form.github} onChange={update("github")} className={inputClasses} />
+          <label className={labelClasses}>GitHub link or repo name</label>
+          <input
+            value={form.github}
+            onChange={update("github")}
+            placeholder="e.g. strata or makigtawn/strata"
+            className={inputClasses}
+          />
         </div>
       </div>
 
