@@ -1,11 +1,9 @@
 import { useState } from "react";
 import { Button } from "@/components/Button";
-import { apiUpload } from "@/lib/api";
 
 const emptyForm = {
   title: "",
   description: "",
-  image: "",
   tags: "",
   techStack: "",
   category: "",
@@ -19,7 +17,6 @@ function toFormState(project) {
   return {
     title: project.title || "",
     description: project.description || "",
-    image: project.image || "",
     tags: (project.tags || []).join(", "),
     techStack: (project.techStack || []).join(", "),
     category: project.category || "",
@@ -36,27 +33,10 @@ const labelClasses = "block font-mono text-xs uppercase tracking-[.15em] text-mu
 
 export const ProjectForm = ({ project, onSubmit, onCancel, submitting }) => {
   const [form, setForm] = useState(() => toFormState(project));
-  const [uploading, setUploading] = useState(false);
-  const [uploadError, setUploadError] = useState("");
 
   const update = (field) => (e) => {
     const value = e.target.type === "checkbox" ? e.target.checked : e.target.value;
     setForm((f) => ({ ...f, [field]: value }));
-  };
-
-  const handleFileChange = async (e) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    setUploading(true);
-    setUploadError("");
-    try {
-      const { url } = await apiUpload("/api/uploads", file);
-      setForm((f) => ({ ...f, image: url }));
-    } catch (err) {
-      setUploadError(err.message);
-    } finally {
-      setUploading(false);
-    }
   };
 
   const handleSubmit = (e) => {
@@ -94,30 +74,6 @@ export const ProjectForm = ({ project, onSubmit, onCancel, submitting }) => {
         />
       </div>
 
-      <div>
-        <label className={labelClasses}>Image</label>
-        <div className="flex items-center gap-3">
-          <input
-            value={form.image}
-            onChange={update("image")}
-            placeholder="Image URL, or upload below"
-            className={inputClasses}
-          />
-        </div>
-        <input
-          type="file"
-          accept="image/*"
-          onChange={handleFileChange}
-          disabled={uploading}
-          className="mt-2 text-sm text-muted-foreground"
-        />
-        {uploading && <p className="text-xs text-muted-foreground mt-1">Uploading...</p>}
-        {uploadError && <p className="text-xs text-danger mt-1">{uploadError}</p>}
-        {form.image && (
-          <img src={form.image} alt="Preview" className="mt-2 h-24 rounded-sm object-cover" />
-        )}
-      </div>
-
       <div className="grid sm:grid-cols-2 gap-4">
         <div>
           <label className={labelClasses}>Live link</label>
@@ -151,7 +107,7 @@ export const ProjectForm = ({ project, onSubmit, onCancel, submitting }) => {
       </label>
 
       <div className="flex gap-3 pt-2">
-        <Button type="submit" size="sm" disabled={submitting || uploading}>
+        <Button type="submit" size="sm" disabled={submitting}>
           {submitting ? "Saving..." : project ? "Save changes" : "Create project"}
         </Button>
         {onCancel && (
