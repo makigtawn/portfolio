@@ -14,7 +14,7 @@ export const ProjectTable = ({ projects, onEdit, onDelete }) => {
               Title
             </th>
             <th className="p-4 font-mono text-xs uppercase tracking-[.15em] text-muted-foreground">
-              Category
+              Tech Stack
             </th>
             <th className="p-4 font-mono text-xs uppercase tracking-[.15em] text-muted-foreground">
               Featured
@@ -29,7 +29,7 @@ export const ProjectTable = ({ projects, onEdit, onDelete }) => {
             <tr key={project._id} className="border-b border-border last:border-0">
               <td className="p-4 font-serif text-foreground">{project.title}</td>
               <td className="p-4 font-mono text-xs text-muted-foreground">
-                {project.category || "-"}
+                {(project.tags || []).join(", ") || "-"}
               </td>
               <td className="p-4 font-mono text-xs text-muted-foreground">
                 {project.featured ? "Yes" : "No"}

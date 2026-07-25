@@ -5,8 +5,6 @@ const emptyForm = {
   title: "",
   description: "",
   tags: "",
-  techStack: "",
-  category: "",
   link: "",
   github: "",
   featured: false,
@@ -18,8 +16,6 @@ function toFormState(project) {
     title: project.title || "",
     description: project.description || "",
     tags: (project.tags || []).join(", "),
-    techStack: (project.techStack || []).join(", "),
-    category: project.category || "",
     link: project.link || "",
     github: project.github || "",
     featured: !!project.featured,
@@ -44,10 +40,6 @@ export const ProjectForm = ({ project, onSubmit, onCancel, submitting }) => {
     onSubmit({
       ...form,
       tags: form.tags
-        .split(",")
-        .map((t) => t.trim())
-        .filter(Boolean),
-      techStack: form.techStack
         .split(",")
         .map((t) => t.trim())
         .filter(Boolean),
@@ -85,20 +77,9 @@ export const ProjectForm = ({ project, onSubmit, onCancel, submitting }) => {
         </div>
       </div>
 
-      <div className="grid sm:grid-cols-2 gap-4">
-        <div>
-          <label className={labelClasses}>Category</label>
-          <input value={form.category} onChange={update("category")} className={inputClasses} />
-        </div>
-        <div>
-          <label className={labelClasses}>Tags (comma separated)</label>
-          <input value={form.tags} onChange={update("tags")} className={inputClasses} />
-        </div>
-      </div>
-
       <div>
         <label className={labelClasses}>Tech stack (comma separated)</label>
-        <input value={form.techStack} onChange={update("techStack")} className={inputClasses} />
+        <input value={form.tags} onChange={update("tags")} className={inputClasses} />
       </div>
 
       <label className="flex items-center gap-2 font-mono text-xs uppercase tracking-[.1em] text-muted-foreground">
