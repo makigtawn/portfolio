@@ -3,13 +3,19 @@ import { useMemo } from "react";
 export const VUMeter = () => {
   const bars = useMemo(
     () =>
-      Array.from({ length: 32 }, (_, i) => ({
-        minH: 8 + Math.random() * 10,
-        maxH: 28 + Math.random() * 34,
-        dur: (0.4 + Math.random() * 0.8).toFixed(2),
-        delay: (Math.random() * 0.5).toFixed(2),
-        color: i / 31 > 0.85 ? "#c03020" : i / 31 > 0.65 ? "#c49a20" : "#8a6018",
-      })),
+      Array.from({ length: 32 }, (_, i) => {
+        const r1 = Math.abs(Math.sin((i + 1) * 12.9898));
+        const r2 = Math.abs(Math.sin((i + 1) * 78.233));
+        const r3 = Math.abs(Math.sin((i + 1) * 45.164));
+        const r4 = Math.abs(Math.sin((i + 1) * 93.512));
+        return {
+          minH: 8 + (r1 % 1) * 10,
+          maxH: 28 + (r2 % 1) * 34,
+          dur: (0.4 + (r3 % 1) * 0.8).toFixed(2),
+          delay: ((r4 % 1) * 0.5).toFixed(2),
+          color: i / 31 > 0.85 ? "#c03020" : i / 31 > 0.65 ? "#c49a20" : "#8a6018",
+        };
+      }),
     [],
   );
 
