@@ -12,14 +12,89 @@ function deriveMeta(project, idx, total) {
   return { freq: `${mhz.toFixed(1)} MHz`, signal, status, year };
 }
 
+// Last synced with https://portfolio-backend-2366.onrender.com/api/projects
+// Order matches the backend's sort: { order: 1, createdAt: -1 }
+// Only used when both the backend AND projects.php are unreachable.
+const DEFAULT_PROJECTS = [
+  {
+    _id: "6a64730db99e53cbd6b589b2",
+    title: "DevBrain",
+    description: "AI-powered \"second brain\" for developers - save code snippets, errors, and notes, then find them later with natural-language semantic search instead of grepping through old projects.",
+    image: "",
+    tags: ["Next.js", "tRPC", "Prisma", "Supabase", "Gemini", "chrome extension"],
+    link: "",
+    github: "https://github.com/makigtawn/devbrain",
+    featured: false,
+    createdAt: "2026-07-25T08:25:49.065Z"
+  },
+  {
+    _id: "6a5e1f1b23c53d3fa1b303fa",
+    title: "Clinic patient queue management system",
+    description: "a project which was given for data structure and algorithm assignment in my software engineering department instructor .",
+    image: "",
+    tags: ["html", "css", "javascript", "c++", "Cmake", "C"],
+    link: "",
+    github: "https://github.com/makigtawn/clinic-patient-queue-management-system",
+    featured: false,
+    createdAt: "2026-07-20T13:14:03.585Z"
+  },
+  {
+    _id: "6a5e1f1b23c53d3fa1b303f8",
+    title: "Bahirdar university",
+    description: "Simple and Interactive version of my university website, which the main is scattered and hard to communicate with.",
+    image: "/projects/project3.png",
+    tags: ["HTML5", "CSS", "Javascript"],
+    link: "https://bahirdaruniversity.vercel.app",
+    github: "https://github.com/makigtawn/bahirdaruniversity",
+    featured: false,
+    createdAt: "2026-07-20T13:14:03.585Z"
+  },
+  {
+    _id: "6a5e1f1b23c53d3fa1b303f9",
+    title: "Qandil",
+    description: "AI-based personalized learning platform",
+    image: "",
+    tags: ["React", "Typescript", "NodeJS", "Mongodb"],
+    link: "https://qandil-ai.vercel.app/",
+    github: "https://github.com/makigtawn/Qandil-ai",
+    featured: true,
+    createdAt: "2026-07-20T13:14:03.585Z"
+  },
+  {
+    _id: "6a5e1f1b23c53d3fa1b303f7",
+    title: "Strata",
+    description: "strata is AI powered fast candidate screening platform for employers",
+    image: "",
+    tags: ["React", "Javascript", "postgres", "supabase", "JWT", "Tailwindcss"],
+    link: "https://strata-hire.vercel.app",
+    github: "https://github.com/makigtawn/strata",
+    featured: true,
+    createdAt: "2026-07-20T13:14:03.584Z"
+  }
+];
+
 export const Broadcasts = () => {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // Try the real backend (Node.js / MongoDB on Render) first,
+    // then fall back to the static PHP file, then to hardcoded defaults.
     apiGet("/api/projects")
-      .then((data) => setProjects(data.projects || []))
-      .catch(() => setProjects([]))
+      .then((data) => {
+        if (data?.projects?.length > 0) {
+          setProjects(data.projects);
+        } else {
+          return apiGet("/api/projects.php").then((d) =>
+            setProjects(d?.projects?.length > 0 ? d.projects : DEFAULT_PROJECTS)
+          );
+        }
+      })
+      .catch(() => {
+        apiGet("/api/projects.php")
+          .then((data) => setProjects(data?.projects?.length > 0 ? data.projects : DEFAULT_PROJECTS))
+          .catch(() => setProjects(DEFAULT_PROJECTS));
+      })
       .finally(() => setLoading(false));
   }, []);
 
