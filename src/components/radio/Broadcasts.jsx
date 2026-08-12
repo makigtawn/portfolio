@@ -78,24 +78,51 @@ export const Broadcasts = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Try the real backend (Node.js / MongoDB on Render) first,
-    // then fall back to the static PHP file, then to hardcoded defaults.
-    apiGet("/api/projects")
-      .then((data) => {
-        if (data?.projects?.length > 0) {
-          setProjects(data.projects);
-        } else {
-          return apiGet("/api/projects.php").then((d) =>
-            setProjects(d?.projects?.length > 0 ? d.projects : DEFAULT_PROJECTS)
-          );
-        }
-      })
-      .catch(() => {
-        apiGet("/api/projects.php")
-          .then((data) => setProjects(data?.projects?.length > 0 ? data.projects : DEFAULT_PROJECTS))
-          .catch(() => setProjects(DEFAULT_PROJECTS));
-      })
-      .finally(() => setLoading(false));
+    // On meklit.pro.et (PHP server): try PHP first, fall back to Render.
+    // Everywhere else (e.g. Render static site): try Render first, fall back to PHP.
+    const isPhpHost = window.location.hostname === "meklit.pro.et";
+
+    const tryPhpFirst = () =>
+      apiGet("/api/projects.php")
+        .then((data) => {
+          if (data?.projects?.length > 0) {
+            setProjects(data.projects);
+          } else {
+            return apiGet("/api/projects").then((d) =>
+              setProjects(d?.projects?.length > 0 ? d.projects : DEFAULT_PROJECTS)
+            );
+          }
+        })
+        .catch(() =>
+          apiGet("/api/projects")
+            .then((data) => setProjects(data?.projects?.length > 0 ? data.projects : DEFAULT_PROJECTS))
+            .catch(() => setProjects(DEFAULT_PROJECTS))
+        )
+        .finally(() => setLoading(false));
+
+    const tryRenderFirst = () =>
+      apiGet("/api/projects")
+        .then((data) => {
+          if (data?.projects?.length > 0) {
+            setProjects(data.projects);
+          } else {
+            return apiGet("/api/projects.php").then((d) =>
+              setProjects(d?.projects?.length > 0 ? d.projects : DEFAULT_PROJECTS)
+            );
+          }
+        })
+        .catch(() =>
+          apiGet("/api/projects.php")
+            .then((data) => setProjects(data?.projects?.length > 0 ? data.projects : DEFAULT_PROJECTS))
+            .catch(() => setProjects(DEFAULT_PROJECTS))
+        )
+        .finally(() => setLoading(false));
+
+    if (isPhpHost) {
+      tryPhpFirst();
+    } else {
+      tryRenderFirst();
+    }
   }, []);
 
   return (
